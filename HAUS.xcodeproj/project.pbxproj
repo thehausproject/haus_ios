@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6540DD4F18A82F81006B9F91 /* FrontActi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4A18A82F81006B9F91 /* FrontActi.jpg */; };
+		6540DD5018A82F81006B9F91 /* greenStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4B18A82F81006B9F91 /* greenStatus.png */; };
+		6540DD5118A82F81006B9F91 /* securityCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4C18A82F81006B9F91 /* securityCamera.png */; };
+		6540DD5218A82F81006B9F91 /* thermo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4D18A82F81006B9F91 /* thermo.png */; };
+		6540DD5318A82F81006B9F91 /* unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4E18A82F81006B9F91 /* unlock.png */; };
+		6540DD5918AC804A006B9F91 /* logicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540DD5818AC804A006B9F91 /* logicViewController.m */; };
 		654EE955180CB2E500C2452E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654EE954180CB2E500C2452E /* Foundation.framework */; };
 		654EE957180CB2E500C2452E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654EE956180CB2E500C2452E /* CoreGraphics.framework */; };
 		654EE959180CB2E500C2452E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654EE958180CB2E500C2452E /* UIKit.framework */; };
@@ -19,6 +25,10 @@
 		654EE970180CB2E500C2452E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654EE958180CB2E500C2452E /* UIKit.framework */; };
 		654EE978180CB2E500C2452E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 654EE976180CB2E500C2452E /* InfoPlist.strings */; };
 		654EE97A180CB2E500C2452E /* RibbitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 654EE979180CB2E500C2452E /* RibbitTests.m */; };
+		654EE984180CB30900C2452E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654EE983180CB30900C2452E /* MainStoryboard.storyboard */; };
+		654EE98C180CB9A700C2452E /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654EE98B180CB9A700C2452E /* InboxViewController.m */; };
+		659DA4711829522700A09240 /* addDeviceControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659DA4701829522700A09240 /* addDeviceControllerViewController.m */; };
+		65F81AB0184BDEEE002E09DA /* deviceDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F81AAF184BDEEE002E09DA /* deviceDetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,22 +42,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		654EE951180CB2E500C2452E /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6540DD4A18A82F81006B9F91 /* FrontActi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = FrontActi.jpg; path = assets/FrontActi.jpg; sourceTree = "<group>"; };
+		6540DD4B18A82F81006B9F91 /* greenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenStatus.png; path = assets/greenStatus.png; sourceTree = "<group>"; };
+		6540DD4C18A82F81006B9F91 /* securityCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = securityCamera.png; path = assets/securityCamera.png; sourceTree = "<group>"; };
+		6540DD4D18A82F81006B9F91 /* thermo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thermo.png; path = assets/thermo.png; sourceTree = "<group>"; };
+		6540DD4E18A82F81006B9F91 /* unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unlock.png; path = assets/unlock.png; sourceTree = "<group>"; };
+		6540DD5718AC804A006B9F91 /* logicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logicViewController.h; sourceTree = "<group>"; };
+		6540DD5818AC804A006B9F91 /* logicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logicViewController.m; sourceTree = "<group>"; };
+		654EE951180CB2E500C2452E /* HAUS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HAUS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654EE954180CB2E500C2452E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		654EE956180CB2E500C2452E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		654EE958180CB2E500C2452E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		654EE95C180CB2E500C2452E /* Ribbit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ribbit-Info.plist"; sourceTree = "<group>"; };
+		654EE95C180CB2E500C2452E /* HAUS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HAUS-Info.plist"; sourceTree = "<group>"; };
 		654EE95E180CB2E500C2452E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		654EE960180CB2E500C2452E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		654EE962180CB2E500C2452E /* Ribbit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ribbit-Prefix.pch"; sourceTree = "<group>"; };
+		654EE962180CB2E500C2452E /* HAUS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAUS-Prefix.pch"; sourceTree = "<group>"; };
 		654EE963180CB2E500C2452E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		654EE964180CB2E500C2452E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		654EE966180CB2E500C2452E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		654EE96C180CB2E500C2452E /* RibbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RibbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		654EE96C180CB2E500C2452E /* HAUSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HAUSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		654EE96D180CB2E500C2452E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		654EE975180CB2E500C2452E /* RibbitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RibbitTests-Info.plist"; sourceTree = "<group>"; };
+		654EE975180CB2E500C2452E /* HAUSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HAUSTests-Info.plist"; sourceTree = "<group>"; };
 		654EE977180CB2E500C2452E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		654EE979180CB2E500C2452E /* RibbitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RibbitTests.m; sourceTree = "<group>"; };
+		654EE983180CB30900C2452E /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		654EE98A180CB9A700C2452E /* InboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxViewController.h; sourceTree = "<group>"; };
+		654EE98B180CB9A700C2452E /* InboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxViewController.m; sourceTree = "<group>"; };
+		659DA46F1829522700A09240 /* addDeviceControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addDeviceControllerViewController.h; sourceTree = "<group>"; };
+		659DA4701829522700A09240 /* addDeviceControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addDeviceControllerViewController.m; sourceTree = "<group>"; };
+		65F81AAE184BDEEE002E09DA /* deviceDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceDetailView.h; sourceTree = "<group>"; };
+		65F81AAF184BDEEE002E09DA /* deviceDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceDetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +101,22 @@
 		654EE948180CB2E500C2452E = {
 			isa = PBXGroup;
 			children = (
-				654EE95A180CB2E500C2452E /* Ribbit */,
-				654EE973180CB2E500C2452E /* RibbitTests */,
+				6540DD5718AC804A006B9F91 /* logicViewController.h */,
+				6540DD5818AC804A006B9F91 /* logicViewController.m */,
+				659DA46F1829522700A09240 /* addDeviceControllerViewController.h */,
+				659DA4701829522700A09240 /* addDeviceControllerViewController.m */,
+				654EE98A180CB9A700C2452E /* InboxViewController.h */,
+				6540DD4A18A82F81006B9F91 /* FrontActi.jpg */,
+				6540DD4B18A82F81006B9F91 /* greenStatus.png */,
+				6540DD4C18A82F81006B9F91 /* securityCamera.png */,
+				6540DD4D18A82F81006B9F91 /* thermo.png */,
+				6540DD4E18A82F81006B9F91 /* unlock.png */,
+				65F81AAE184BDEEE002E09DA /* deviceDetailView.h */,
+				65F81AAF184BDEEE002E09DA /* deviceDetailView.m */,
+				654EE98B180CB9A700C2452E /* InboxViewController.m */,
+				654EE983180CB30900C2452E /* MainStoryboard.storyboard */,
+				654EE95A180CB2E500C2452E /* HAUS */,
+				654EE973180CB2E500C2452E /* HAUSTests */,
 				654EE953180CB2E500C2452E /* Frameworks */,
 				654EE952180CB2E500C2452E /* Products */,
 			);
@@ -87,8 +125,8 @@
 		654EE952180CB2E500C2452E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				654EE951180CB2E500C2452E /* Ribbit.app */,
-				654EE96C180CB2E500C2452E /* RibbitTests.xctest */,
+				654EE951180CB2E500C2452E /* HAUS.app */,
+				654EE96C180CB2E500C2452E /* HAUSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,7 +142,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		654EE95A180CB2E500C2452E /* Ribbit */ = {
+		654EE95A180CB2E500C2452E /* HAUS */ = {
 			isa = PBXGroup;
 			children = (
 				654EE963180CB2E500C2452E /* AppDelegate.h */,
@@ -112,33 +150,35 @@
 				654EE966180CB2E500C2452E /* Images.xcassets */,
 				654EE95B180CB2E500C2452E /* Supporting Files */,
 			);
+			name = HAUS;
 			path = Ribbit;
 			sourceTree = "<group>";
 		};
 		654EE95B180CB2E500C2452E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				654EE95C180CB2E500C2452E /* Ribbit-Info.plist */,
+				654EE95C180CB2E500C2452E /* HAUS-Info.plist */,
 				654EE95D180CB2E500C2452E /* InfoPlist.strings */,
 				654EE960180CB2E500C2452E /* main.m */,
-				654EE962180CB2E500C2452E /* Ribbit-Prefix.pch */,
+				654EE962180CB2E500C2452E /* HAUS-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		654EE973180CB2E500C2452E /* RibbitTests */ = {
+		654EE973180CB2E500C2452E /* HAUSTests */ = {
 			isa = PBXGroup;
 			children = (
 				654EE979180CB2E500C2452E /* RibbitTests.m */,
 				654EE974180CB2E500C2452E /* Supporting Files */,
 			);
+			name = HAUSTests;
 			path = RibbitTests;
 			sourceTree = "<group>";
 		};
 		654EE974180CB2E500C2452E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				654EE975180CB2E500C2452E /* RibbitTests-Info.plist */,
+				654EE975180CB2E500C2452E /* HAUSTests-Info.plist */,
 				654EE976180CB2E500C2452E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -147,9 +187,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		654EE950180CB2E500C2452E /* Ribbit */ = {
+		654EE950180CB2E500C2452E /* HAUS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 654EE97D180CB2E500C2452E /* Build configuration list for PBXNativeTarget "Ribbit" */;
+			buildConfigurationList = 654EE97D180CB2E500C2452E /* Build configuration list for PBXNativeTarget "HAUS" */;
 			buildPhases = (
 				654EE94D180CB2E500C2452E /* Sources */,
 				654EE94E180CB2E500C2452E /* Frameworks */,
@@ -159,14 +199,14 @@
 			);
 			dependencies = (
 			);
-			name = Ribbit;
+			name = HAUS;
 			productName = Ribbit;
-			productReference = 654EE951180CB2E500C2452E /* Ribbit.app */;
+			productReference = 654EE951180CB2E500C2452E /* HAUS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		654EE96B180CB2E500C2452E /* RibbitTests */ = {
+		654EE96B180CB2E500C2452E /* HAUSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 654EE980180CB2E500C2452E /* Build configuration list for PBXNativeTarget "RibbitTests" */;
+			buildConfigurationList = 654EE980180CB2E500C2452E /* Build configuration list for PBXNativeTarget "HAUSTests" */;
 			buildPhases = (
 				654EE968180CB2E500C2452E /* Sources */,
 				654EE969180CB2E500C2452E /* Frameworks */,
@@ -177,9 +217,9 @@
 			dependencies = (
 				654EE972180CB2E500C2452E /* PBXTargetDependency */,
 			);
-			name = RibbitTests;
+			name = HAUSTests;
 			productName = RibbitTests;
-			productReference = 654EE96C180CB2E500C2452E /* RibbitTests.xctest */;
+			productReference = 654EE96C180CB2E500C2452E /* HAUSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -191,12 +231,15 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Daniel Avram";
 				TargetAttributes = {
+					654EE950180CB2E500C2452E = {
+						DevelopmentTeam = U694MCMU4Y;
+					};
 					654EE96B180CB2E500C2452E = {
 						TestTargetID = 654EE950180CB2E500C2452E;
 					};
 				};
 			};
-			buildConfigurationList = 654EE94C180CB2E500C2452E /* Build configuration list for PBXProject "Ribbit" */;
+			buildConfigurationList = 654EE94C180CB2E500C2452E /* Build configuration list for PBXProject "HAUS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -208,8 +251,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				654EE950180CB2E500C2452E /* Ribbit */,
-				654EE96B180CB2E500C2452E /* RibbitTests */,
+				654EE950180CB2E500C2452E /* HAUS */,
+				654EE96B180CB2E500C2452E /* HAUSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,8 +262,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6540DD5218A82F81006B9F91 /* thermo.png in Resources */,
+				654EE984180CB30900C2452E /* MainStoryboard.storyboard in Resources */,
+				6540DD5318A82F81006B9F91 /* unlock.png in Resources */,
 				654EE95F180CB2E500C2452E /* InfoPlist.strings in Resources */,
 				654EE967180CB2E500C2452E /* Images.xcassets in Resources */,
+				6540DD5118A82F81006B9F91 /* securityCamera.png in Resources */,
+				6540DD5018A82F81006B9F91 /* greenStatus.png in Resources */,
+				6540DD4F18A82F81006B9F91 /* FrontActi.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F81AB0184BDEEE002E09DA /* deviceDetailView.m in Sources */,
 				654EE965180CB2E500C2452E /* AppDelegate.m in Sources */,
 				654EE961180CB2E500C2452E /* main.m in Sources */,
+				659DA4711829522700A09240 /* addDeviceControllerViewController.m in Sources */,
+				654EE98C180CB9A700C2452E /* InboxViewController.m in Sources */,
+				6540DD5918AC804A006B9F91 /* logicViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +310,7 @@
 /* Begin PBXTargetDependency section */
 		654EE972180CB2E500C2452E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 654EE950180CB2E500C2452E /* Ribbit */;
+			target = 654EE950180CB2E500C2452E /* HAUS */;
 			targetProxy = 654EE971180CB2E500C2452E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -359,10 +412,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ribbit/Ribbit-Prefix.pch";
-				INFOPLIST_FILE = "Ribbit/Ribbit-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Ribbit/HAUS-Prefix.pch";
+				INFOPLIST_FILE = "Ribbit/HAUS-Info.plist";
+				PRODUCT_NAME = HAUS;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -372,10 +426,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ribbit/Ribbit-Prefix.pch";
-				INFOPLIST_FILE = "Ribbit/Ribbit-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Ribbit/HAUS-Prefix.pch";
+				INFOPLIST_FILE = "Ribbit/HAUS-Info.plist";
+				PRODUCT_NAME = HAUS;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -396,8 +451,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "RibbitTests/RibbitTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "RibbitTests/HAUSTests-Info.plist";
+				PRODUCT_NAME = HAUSTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -415,8 +470,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ribbit/Ribbit-Prefix.pch";
-				INFOPLIST_FILE = "RibbitTests/RibbitTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "RibbitTests/HAUSTests-Info.plist";
+				PRODUCT_NAME = HAUSTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -425,7 +480,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		654EE94C180CB2E500C2452E /* Build configuration list for PBXProject "Ribbit" */ = {
+		654EE94C180CB2E500C2452E /* Build configuration list for PBXProject "HAUS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				654EE97B180CB2E500C2452E /* Debug */,
@@ -434,21 +489,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		654EE97D180CB2E500C2452E /* Build configuration list for PBXNativeTarget "Ribbit" */ = {
+		654EE97D180CB2E500C2452E /* Build configuration list for PBXNativeTarget "HAUS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				654EE97E180CB2E500C2452E /* Debug */,
 				654EE97F180CB2E500C2452E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		654EE980180CB2E500C2452E /* Build configuration list for PBXNativeTarget "RibbitTests" */ = {
+		654EE980180CB2E500C2452E /* Build configuration list for PBXNativeTarget "HAUSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				654EE981180CB2E500C2452E /* Debug */,
 				654EE982180CB2E500C2452E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
