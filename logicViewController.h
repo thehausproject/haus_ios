@@ -1,0 +1,15 @@
+//
+//  logicViewController.h
+//  HAUS
+//
+//  Created by Daniel Avram on 2/12/14.
+//  Copyright (c) 2014 Daniel Avram. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface logicViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *userNameText;
+@property (strong, nonatomic) IBOutlet UITextField *passwordText;
+
+@end
