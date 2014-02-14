@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface deviceDetailView : NSObject
+@interface deviceDetailView : UITableViewController
 
 @end

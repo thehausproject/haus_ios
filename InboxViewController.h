@@ -10,4 +10,7 @@
 
 @interface InboxViewController : UITableViewController
 
+
+@property (strong, nonatomic) IBOutlet UIPickerView *deviceType;
+
 @end

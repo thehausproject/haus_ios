@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	deviceTypes = [[NSArray alloc] initWithObjects:@"Lock", @"Access Code", @"Authorized User", @"Camera", @"Thermometer", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,5 +34,23 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    //one column
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return deviceTypes.count;
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [deviceTypes objectAtIndex:row];
+}
+
+
 
 @end

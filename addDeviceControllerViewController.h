@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface addDeviceControllerViewController : UIViewController
+@interface addDeviceControllerViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>{
+    
+    UIPickerView *deviceTypePicker;
+    NSArray *deviceTypes;
+    
+}
+
+@property (strong, nonatomic) IBOutlet UIPickerView *deviceTypePicker;
+
+
 
 @end
