@@ -13,4 +13,15 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+// set developer log
+#ifdef NDEBUG
+// do nothing
+#define DLog(...)
+#else
+//route to DLog
+#define DLog NSLog
+#endif
+
+
 #endif

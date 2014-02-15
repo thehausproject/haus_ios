@@ -12,6 +12,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    if (!self.hausUserData) {
+        self.hausUserData = [HAUSWebServiceUserData new];
+    }
     return YES;
 }
 

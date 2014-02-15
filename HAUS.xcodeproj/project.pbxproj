@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46BF3F8318AFC412000466F5 /* HAUSWebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8218AFC412000466F5 /* HAUSWebServiceClient.m */; };
+		46BF3F8818AFC4E7000466F5 /* HAUSNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8718AFC4E7000466F5 /* HAUSNSURLConnection.m */; };
+		46BF3F8B18AFD29F000466F5 /* HAUSWebServiceUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8A18AFD29F000466F5 /* HAUSWebServiceUserData.m */; };
+		46BF3F9118AFD737000466F5 /* CallbackHelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F9018AFD737000466F5 /* CallbackHelperMethods.m */; };
 		6540DD4F18A82F81006B9F91 /* FrontActi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4A18A82F81006B9F91 /* FrontActi.jpg */; };
 		6540DD5018A82F81006B9F91 /* greenStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4B18A82F81006B9F91 /* greenStatus.png */; };
 		6540DD5118A82F81006B9F91 /* securityCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4C18A82F81006B9F91 /* securityCamera.png */; };
 		6540DD5218A82F81006B9F91 /* thermo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4D18A82F81006B9F91 /* thermo.png */; };
 		6540DD5318A82F81006B9F91 /* unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4E18A82F81006B9F91 /* unlock.png */; };
-		6540DD5918AC804A006B9F91 /* logicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540DD5818AC804A006B9F91 /* logicViewController.m */; };
+		6540DD5918AC804A006B9F91 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540DD5818AC804A006B9F91 /* LoginViewController.m */; };
 		654EE955180CB2E500C2452E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654EE954180CB2E500C2452E /* Foundation.framework */; };
 		654EE957180CB2E500C2452E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654EE956180CB2E500C2452E /* CoreGraphics.framework */; };
 		654EE959180CB2E500C2452E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654EE958180CB2E500C2452E /* UIKit.framework */; };
@@ -42,13 +46,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46BF3F8118AFC412000466F5 /* HAUSWebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUSWebServiceClient.h; sourceTree = "<group>"; };
+		46BF3F8218AFC412000466F5 /* HAUSWebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUSWebServiceClient.m; sourceTree = "<group>"; };
+		46BF3F8618AFC4E7000466F5 /* HAUSNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUSNSURLConnection.h; sourceTree = "<group>"; };
+		46BF3F8718AFC4E7000466F5 /* HAUSNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUSNSURLConnection.m; sourceTree = "<group>"; };
+		46BF3F8918AFD29F000466F5 /* HAUSWebServiceUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUSWebServiceUserData.h; sourceTree = "<group>"; };
+		46BF3F8A18AFD29F000466F5 /* HAUSWebServiceUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUSWebServiceUserData.m; sourceTree = "<group>"; };
+		46BF3F8F18AFD737000466F5 /* CallbackHelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallbackHelperMethods.h; sourceTree = "<group>"; };
+		46BF3F9018AFD737000466F5 /* CallbackHelperMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallbackHelperMethods.m; sourceTree = "<group>"; };
 		6540DD4A18A82F81006B9F91 /* FrontActi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = FrontActi.jpg; path = assets/FrontActi.jpg; sourceTree = "<group>"; };
 		6540DD4B18A82F81006B9F91 /* greenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenStatus.png; path = assets/greenStatus.png; sourceTree = "<group>"; };
 		6540DD4C18A82F81006B9F91 /* securityCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = securityCamera.png; path = assets/securityCamera.png; sourceTree = "<group>"; };
 		6540DD4D18A82F81006B9F91 /* thermo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thermo.png; path = assets/thermo.png; sourceTree = "<group>"; };
 		6540DD4E18A82F81006B9F91 /* unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unlock.png; path = assets/unlock.png; sourceTree = "<group>"; };
-		6540DD5718AC804A006B9F91 /* logicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logicViewController.h; sourceTree = "<group>"; };
-		6540DD5818AC804A006B9F91 /* logicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logicViewController.m; sourceTree = "<group>"; };
+		6540DD5718AC804A006B9F91 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6540DD5818AC804A006B9F91 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		654EE951180CB2E500C2452E /* HAUS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HAUS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654EE954180CB2E500C2452E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		654EE956180CB2E500C2452E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,14 +110,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46BF3F8018AFC3FE000466F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				46BF3F9218AFD775000466F5 /* Library Functions */,
+				46BF3F8418AFC4A3000466F5 /* HAUS Web Service */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		46BF3F8418AFC4A3000466F5 /* HAUS Web Service */ = {
+			isa = PBXGroup;
+			children = (
+				46BF3F8C18AFD405000466F5 /* HAUSWebServiceUserData */,
+				46BF3F8518AFC4B3000466F5 /* HAUSNSURLConnection */,
+				46BF3F8118AFC412000466F5 /* HAUSWebServiceClient.h */,
+				46BF3F8218AFC412000466F5 /* HAUSWebServiceClient.m */,
+			);
+			name = "HAUS Web Service";
+			sourceTree = "<group>";
+		};
+		46BF3F8518AFC4B3000466F5 /* HAUSNSURLConnection */ = {
+			isa = PBXGroup;
+			children = (
+				46BF3F8618AFC4E7000466F5 /* HAUSNSURLConnection.h */,
+				46BF3F8718AFC4E7000466F5 /* HAUSNSURLConnection.m */,
+			);
+			name = HAUSNSURLConnection;
+			sourceTree = "<group>";
+		};
+		46BF3F8C18AFD405000466F5 /* HAUSWebServiceUserData */ = {
+			isa = PBXGroup;
+			children = (
+				46BF3F8918AFD29F000466F5 /* HAUSWebServiceUserData.h */,
+				46BF3F8A18AFD29F000466F5 /* HAUSWebServiceUserData.m */,
+			);
+			name = HAUSWebServiceUserData;
+			sourceTree = "<group>";
+		};
+		46BF3F9218AFD775000466F5 /* Library Functions */ = {
+			isa = PBXGroup;
+			children = (
+				46BF3F8F18AFD737000466F5 /* CallbackHelperMethods.h */,
+				46BF3F9018AFD737000466F5 /* CallbackHelperMethods.m */,
+			);
+			name = "Library Functions";
+			sourceTree = "<group>";
+		};
+		46D6504218AEB73000E01E86 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				46D6504518AEB7C900E01E86 /* Login */,
+				46D6504418AEB75200E01E86 /* Devices */,
+				46D6504318AEB73D00E01E86 /* Security */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		46D6504318AEB73D00E01E86 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				654EE98A180CB9A700C2452E /* InboxViewController.h */,
+				654EE98B180CB9A700C2452E /* InboxViewController.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		46D6504418AEB75200E01E86 /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Devices;
+			sourceTree = "<group>";
+		};
+		46D6504518AEB7C900E01E86 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6540DD5718AC804A006B9F91 /* LoginViewController.h */,
+				6540DD5818AC804A006B9F91 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		654EE948180CB2E500C2452E = {
 			isa = PBXGroup;
 			children = (
-				6540DD5718AC804A006B9F91 /* logicViewController.h */,
-				6540DD5818AC804A006B9F91 /* logicViewController.m */,
+				46BF3F8018AFC3FE000466F5 /* Model */,
+				46D6504218AEB73000E01E86 /* Controllers */,
 				659DA46F1829522700A09240 /* addDeviceControllerViewController.h */,
 				659DA4701829522700A09240 /* addDeviceControllerViewController.m */,
-				654EE98A180CB9A700C2452E /* InboxViewController.h */,
 				6540DD4A18A82F81006B9F91 /* FrontActi.jpg */,
 				6540DD4B18A82F81006B9F91 /* greenStatus.png */,
 				6540DD4C18A82F81006B9F91 /* securityCamera.png */,
@@ -113,7 +206,6 @@
 				6540DD4E18A82F81006B9F91 /* unlock.png */,
 				65F81AAE184BDEEE002E09DA /* deviceDetailView.h */,
 				65F81AAF184BDEEE002E09DA /* deviceDetailView.m */,
-				654EE98B180CB9A700C2452E /* InboxViewController.m */,
 				654EE983180CB30900C2452E /* MainStoryboard.storyboard */,
 				654EE95A180CB2E500C2452E /* HAUS */,
 				654EE973180CB2E500C2452E /* HAUSTests */,
@@ -229,7 +321,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Daniel Avram";
+				ORGANIZATIONNAME = HAUS;
 				TargetAttributes = {
 					654EE950180CB2E500C2452E = {
 						DevelopmentTeam = U694MCMU4Y;
@@ -290,10 +382,14 @@
 			files = (
 				65F81AB0184BDEEE002E09DA /* deviceDetailView.m in Sources */,
 				654EE965180CB2E500C2452E /* AppDelegate.m in Sources */,
+				46BF3F8B18AFD29F000466F5 /* HAUSWebServiceUserData.m in Sources */,
 				654EE961180CB2E500C2452E /* main.m in Sources */,
 				659DA4711829522700A09240 /* addDeviceControllerViewController.m in Sources */,
+				46BF3F9118AFD737000466F5 /* CallbackHelperMethods.m in Sources */,
 				654EE98C180CB9A700C2452E /* InboxViewController.m in Sources */,
-				6540DD5918AC804A006B9F91 /* logicViewController.m in Sources */,
+				46BF3F8818AFC4E7000466F5 /* HAUSNSURLConnection.m in Sources */,
+				46BF3F8318AFC412000466F5 /* HAUSWebServiceClient.m in Sources */,
+				6540DD5918AC804A006B9F91 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +464,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/**\"/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -401,6 +502,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/**\"/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

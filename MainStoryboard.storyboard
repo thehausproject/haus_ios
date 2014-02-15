@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oha-Sm-wbA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oha-Sm-wbA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -209,17 +209,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="HAUS" id="vi5-rU-uoB"/>
                     <connections>
-                        <segue destination="aP4-kX-Wls" kind="push" identifier="showLogin" id="FgW-v9-dgh"/>
+                        <segue destination="0C9-Zj-FnX" kind="modal" identifier="showLogin" animates="NO" id="FgW-v9-dgh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pi-eg-kcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1104" y="-336"/>
         </scene>
-        <!--Logic View Controller - HAUS-->
+        <!--Login View Controller - HAUS-->
         <scene sceneID="L05-Z4-jUN">
             <objects>
-                <viewController id="aP4-kX-Wls" customClass="logicViewController" sceneMemberID="viewController">
+                <viewController id="aP4-kX-Wls" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WR6-yK-8cQ"/>
                         <viewControllerLayoutGuide type="bottom" id="3hq-0o-3Gk"/>
@@ -279,12 +279,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nu9-gS-4pK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="-572"/>
+            <point key="canvasLocation" x="2287" y="-572"/>
         </scene>
-        <!--Logic View Controller - HAUS-->
+        <!--Login View Controller - HAUS-->
         <scene sceneID="HzC-Fo-Goh">
             <objects>
-                <viewController id="UxD-tD-egb" customClass="logicViewController" sceneMemberID="viewController">
+                <viewController id="UxD-tD-egb" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9FL-aU-YyM"/>
                         <viewControllerLayoutGuide type="bottom" id="488-5O-yOT"/>
@@ -334,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVH-cW-cwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2237" y="-220"/>
+            <point key="canvasLocation" x="2763" y="-220"/>
         </scene>
         <!--Navigation Controller - Security-->
         <scene sceneID="qMF-XV-gSB">
@@ -604,12 +604,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iud-9A-qPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1494" y="1203"/>
+            <point key="canvasLocation" x="1413" y="1504"/>
         </scene>
-        <!--Logic View Controller - HAUS-->
+        <!--Login View Controller - HAUS-->
         <scene sceneID="h1x-k9-mqK">
             <objects>
-                <viewController id="sFD-oM-jlH" customClass="logicViewController" sceneMemberID="viewController">
+                <viewController id="sFD-oM-jlH" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cQ0-bP-9j6"/>
                         <viewControllerLayoutGuide type="bottom" id="TX3-dd-WgC"/>
@@ -653,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNY-IN-TGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2406" y="-948"/>
+            <point key="canvasLocation" x="2932" y="-948"/>
         </scene>
         <!--View Controller - Camera View-->
         <scene sceneID="WAj-xY-lxO">
@@ -1055,7 +1055,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Egb-L2-8Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2742" y="370"/>
+            <point key="canvasLocation" x="2754" y="433"/>
         </scene>
         <!--Table View Controller - Front Door Camera-->
         <scene sceneID="D43-WG-elG">
@@ -1244,6 +1244,24 @@
             </objects>
             <point key="canvasLocation" x="3383" y="1033"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9yH-EQ-EMg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0C9-Zj-FnX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KDd-xm-m9Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aP4-kX-Wls" kind="relationship" relationship="rootViewController" id="Cju-Ur-AMV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09l-LE-oXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="-572"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FrontActi.jpg" width="1023" height="799"/>
@@ -1259,6 +1277,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="6ku-Dy-Q1D"/>
-        <segue reference="ddj-vd-EJR"/>
+        <segue reference="qU1-Bf-PFb"/>
     </inferredMetricsTieBreakers>
 </document>
