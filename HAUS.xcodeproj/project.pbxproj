@@ -37,9 +37,6 @@
 		654EE978180CB2E500C2452E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 654EE976180CB2E500C2452E /* InfoPlist.strings */; };
 		654EE97A180CB2E500C2452E /* RibbitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 654EE979180CB2E500C2452E /* RibbitTests.m */; };
 		654EE984180CB30900C2452E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654EE983180CB30900C2452E /* MainStoryboard.storyboard */; };
-		654EE98C180CB9A700C2452E /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654EE98B180CB9A700C2452E /* InboxViewController.m */; };
-		659DA4711829522700A09240 /* addDeviceControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659DA4701829522700A09240 /* addDeviceControllerViewController.m */; };
-		65F81AB0184BDEEE002E09DA /* deviceDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F81AAF184BDEEE002E09DA /* deviceDetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,12 +95,6 @@
 		654EE977180CB2E500C2452E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		654EE979180CB2E500C2452E /* RibbitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RibbitTests.m; sourceTree = "<group>"; };
 		654EE983180CB30900C2452E /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		654EE98A180CB9A700C2452E /* InboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxViewController.h; sourceTree = "<group>"; };
-		654EE98B180CB9A700C2452E /* InboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxViewController.m; sourceTree = "<group>"; };
-		659DA46F1829522700A09240 /* addDeviceControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addDeviceControllerViewController.h; sourceTree = "<group>"; };
-		659DA4701829522700A09240 /* addDeviceControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addDeviceControllerViewController.m; sourceTree = "<group>"; };
-		65F81AAE184BDEEE002E09DA /* deviceDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceDetailView.h; sourceTree = "<group>"; };
-		65F81AAF184BDEEE002E09DA /* deviceDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceDetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,23 +206,35 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		46BF3FAE18B0350A000466F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				46BF3FAF18B03514000466F5 /* Resources */,
+				654EE983180CB30900C2452E /* MainStoryboard.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		46BF3FAF18B03514000466F5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6540DD4A18A82F81006B9F91 /* FrontActi.jpg */,
+				6540DD4B18A82F81006B9F91 /* greenStatus.png */,
+				6540DD4C18A82F81006B9F91 /* securityCamera.png */,
+				6540DD4D18A82F81006B9F91 /* thermo.png */,
+				6540DD4E18A82F81006B9F91 /* unlock.png */,
+				46BF3FAC18B02553000466F5 /* locked.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		46D6504218AEB73000E01E86 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				46D6504518AEB7C900E01E86 /* Login */,
 				46D6504418AEB75200E01E86 /* Devices */,
-				46D6504318AEB73D00E01E86 /* Security */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		46D6504318AEB73D00E01E86 /* Security */ = {
-			isa = PBXGroup;
-			children = (
-				654EE98A180CB9A700C2452E /* InboxViewController.h */,
-				654EE98B180CB9A700C2452E /* InboxViewController.m */,
-			);
-			name = Security;
 			sourceTree = "<group>";
 		};
 		46D6504418AEB75200E01E86 /* Devices */ = {
@@ -259,19 +262,9 @@
 		654EE948180CB2E500C2452E = {
 			isa = PBXGroup;
 			children = (
+				46BF3FAE18B0350A000466F5 /* View */,
 				46BF3F8018AFC3FE000466F5 /* Model */,
 				46D6504218AEB73000E01E86 /* Controllers */,
-				659DA46F1829522700A09240 /* addDeviceControllerViewController.h */,
-				659DA4701829522700A09240 /* addDeviceControllerViewController.m */,
-				6540DD4A18A82F81006B9F91 /* FrontActi.jpg */,
-				6540DD4B18A82F81006B9F91 /* greenStatus.png */,
-				6540DD4C18A82F81006B9F91 /* securityCamera.png */,
-				6540DD4D18A82F81006B9F91 /* thermo.png */,
-				6540DD4E18A82F81006B9F91 /* unlock.png */,
-				46BF3FAC18B02553000466F5 /* locked.png */,
-				65F81AAE184BDEEE002E09DA /* deviceDetailView.h */,
-				65F81AAF184BDEEE002E09DA /* deviceDetailView.m */,
-				654EE983180CB30900C2452E /* MainStoryboard.storyboard */,
 				654EE95A180CB2E500C2452E /* HAUS */,
 				654EE973180CB2E500C2452E /* HAUSTests */,
 				654EE953180CB2E500C2452E /* Frameworks */,
@@ -446,15 +439,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F81AB0184BDEEE002E09DA /* deviceDetailView.m in Sources */,
 				654EE965180CB2E500C2452E /* AppDelegate.m in Sources */,
 				46BF3FA718B02155000466F5 /* DeviceViewDetailViewController.m in Sources */,
 				46BF3F8B18AFD29F000466F5 /* HAUSWebServiceUserData.m in Sources */,
 				654EE961180CB2E500C2452E /* main.m in Sources */,
 				46BF3F9B18AFEFF1000466F5 /* DeviceViewController.m in Sources */,
-				659DA4711829522700A09240 /* addDeviceControllerViewController.m in Sources */,
 				46BF3F9118AFD737000466F5 /* CallbackHelperMethods.m in Sources */,
-				654EE98C180CB9A700C2452E /* InboxViewController.m in Sources */,
 				46BF3FA418AFF1FF000466F5 /* AddDeviceInputCell.m in Sources */,
 				46BF3F8818AFC4E7000466F5 /* HAUSNSURLConnection.m in Sources */,
 				46BF3F8318AFC412000466F5 /* HAUSWebServiceClient.m in Sources */,
