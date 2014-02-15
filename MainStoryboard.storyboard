@@ -15,7 +15,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="H55-B6-eiZ" kind="relationship" relationship="viewControllers" id="TXH-Pn-51B"/>
                         <segue destination="3GA-tt-bos" kind="relationship" relationship="viewControllers" id="6ku-Dy-Q1D"/>
                         <segue destination="o0e-nB-j3L" kind="relationship" relationship="viewControllers" id="eYp-Xt-NCp"/>
                     </connections>
@@ -84,11 +83,12 @@
                     <connections>
                         <outlet property="myTableView" destination="icM-56-gXw" id="rnY-Mz-kVs"/>
                         <segue destination="jSV-bY-Cge" kind="push" identifier="showDetail" id="yno-Vn-cDk"/>
+                        <segue destination="0C9-Zj-FnX" kind="modal" identifier="showLogin" animates="NO" id="Jol-f2-UZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jan-Q8-sc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1019" y="406"/>
+            <point key="canvasLocation" x="1032" y="428"/>
         </scene>
         <!--Add Device View Controller - Claim Device-->
         <scene sceneID="bM3-a0-OW2">
@@ -1281,4 +1281,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jol-f2-UZ6"/>
+    </inferredMetricsTieBreakers>
 </document>

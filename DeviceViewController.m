@@ -34,13 +34,35 @@
         devices = [NSMutableArray new];
     }
     
+    if (!appDelegate) {
+        appDelegate = [[UIApplication sharedApplication] delegate];
+    }
     updateDetailViewDevice = NO;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+-(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self getDeviceInfo];
+    if (![appDelegate isLoggedIn]) {
+        [self showLogin];
+    }else {
+        UIBarButtonItem *logOutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logOut)];
+        self.navigationItem.leftBarButtonItem = logOutButton;
+        
+        [self getDeviceInfo];
+    }
+    
+}
+
+- (void) logOut {
+    
+    [appDelegate.hausUserData setUserToken:@""];
+    self.navigationItem.leftBarButtonItem = nil;
+    [self showLogin];
+}
+
+- (void) showLogin {
+    [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
 
 #pragma mark - Tableview Methods
@@ -83,7 +105,6 @@
     
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     //set user token
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
     
     [client getDeviceInfoWithParameters:parameters];
