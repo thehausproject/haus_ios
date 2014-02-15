@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface InboxViewController : UITableViewController
+@interface InboxViewController : UIViewController {
+    
+    AppDelegate *appDelegate;
+}
 
-
-@property (strong, nonatomic) IBOutlet UIPickerView *deviceType;
+@property (strong, nonatomic) IBOutlet UILabel *dateField;
+@property (strong, nonatomic) IBOutlet UILabel *welcomeMessage;
 
 @end

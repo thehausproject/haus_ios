@@ -86,10 +86,10 @@
     
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     [parameters setObject:self.signUp_userName.text forKey:@"username"];
-    [parameters setObject:self.signUp_password forKey:@"password"];
-    [parameters setObject:self.signUp_email forKey:@"email"];
+    [parameters setObject:self.signUp_password.text forKey:@"password"];
+    [parameters setObject:self.signUp_email.text forKey:@"email"];
     
-    
+    //DLog(@"%@",parameters);
     [client signUpWithParameters:parameters];
     
 }

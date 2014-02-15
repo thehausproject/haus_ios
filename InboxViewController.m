@@ -19,44 +19,31 @@
 {
     [super viewDidLoad];
 
+    if (!appDelegate) {
+        appDelegate = [[UIApplication sharedApplication] delegate];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if (![appDelegate isLoggedIn]) {
-        [self performSegueWithIdentifier:@"showLogin" sender:self];
+        [self showLogin];
+    }else {
+        UIBarButtonItem *logOutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logOut)];
+        self.navigationItem.leftBarButtonItem = logOutButton;
     }
     
 }
 
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (void) logOut {
     
-    // Return the number of sections.
-    return 0;
+    [appDelegate.hausUserData setUserToken:@""];
+    self.navigationItem.leftBarButtonItem = nil;
+    [self showLogin];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    // Return the number of rows in the section.
-    return 0;
+- (void) showLogin {
+    [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-
 @end
