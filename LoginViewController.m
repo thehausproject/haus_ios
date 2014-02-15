@@ -100,6 +100,9 @@
 #define JSON_ARG_INDEX 2
 - (void) hausWebServiceResponseForRequest:(kHAUSWebServiceRequestType)requestType withJSON:(NSDictionary *)json {
     
+    DLog(@"Received");
+    DLog(@"%@", json);
+    
     [DejalBezelActivityView removeView];
     
     NSInvocation *invocation = [hausWebServiceCallbacks valueForKey:[[NSNumber numberWithInt:requestType] stringValue]];
@@ -114,6 +117,19 @@
     
 }
 
+#pragma mark - Web Service Helpers
+
+- (void) setUserTokenFromJSON:(NSDictionary *)json {
+    
+    if ([json valueForKey:@"user_token"]) {
+        
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [appDelegate.hausUserData setUserToken:[json valueForKey:@"user_token"]];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 #pragma mark - Define Specific Callback Functions
 - (void) signInResponse:(NSDictionary *)json {
     if ([json valueForKey:@"error"]) {
@@ -122,20 +138,14 @@
         [self.passwordText setText:@""];
     }else {
         
-        //set user token in the app delegate
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        [appDelegate.hausUserData setUserToken:[json valueForKey:@"user_token"]];
+        [self setUserTokenFromJSON:json];
     }
 }
 
 - (void) signUpResponse:(NSDictionary *)json {
     
-    if ([json valueForKey:@"auth_key"]) {
-        
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        [appDelegate.hausUserData setAuthKey:[json valueForKey:@"auth_key"]];
-    }
-    DLog(@"%@", json);
+    [self setUserTokenFromJSON:json];
+    
 }
 
 @end

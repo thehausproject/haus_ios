@@ -15,4 +15,5 @@
 
 @property (strong, nonatomic) HAUSWebServiceUserData *hausUserData;
 
+- (BOOL) isLoggedIn;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "InboxViewController.h"
+#import "AppDelegate.h"
 
 @interface InboxViewController ()
 
@@ -23,7 +24,11 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self performSegueWithIdentifier:@"showLogin" sender:self];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (![appDelegate isLoggedIn]) {
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    }
+    
 }
 
 
