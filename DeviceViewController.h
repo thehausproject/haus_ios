@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "HAUSWebServiceClient.h"
+#import "DeviceViewDetailViewController.h"
 
-@interface DeviceViewController : UIViewController <HAUSWebServiceClientDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface DeviceViewController : UIViewController <HAUSWebServiceClientDelegate, UITableViewDataSource, UITableViewDelegate, DeviceViewDetailViewControllerDelegate> {
+    
     HAUSWebServiceClient *client;
     NSMutableArray *devices;
+    BOOL updateDetailViewDevice;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
+@property (weak, nonatomic) DeviceViewDetailViewController *detailView;
 @end

@@ -9,7 +9,6 @@
 #import "DeviceViewController.h"
 #import "DejalActivityView.h"
 #import "AppDelegate.h"
-#import "DeviceViewDetailViewController.h"
 
 @interface DeviceViewController ()
 
@@ -35,12 +34,12 @@
         devices = [NSMutableArray new];
     }
     
+    updateDetailViewDevice = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self showActivityView];
     [self getDeviceInfo];
 }
 
@@ -73,11 +72,14 @@
         DeviceViewDetailViewController *detailVC = [segue destinationViewController];
         
         detailVC.device = [devices objectAtIndex:self.myTableView.indexPathForSelectedRow.row];
-        
+        self.detailView = detailVC;
+        self.detailView.masterDelegate = self;
     }
 }
 #pragma mark - Web Service Helpers
 - (void) getDeviceInfo {
+    
+    [self showActivityView];
     
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     //set user token
@@ -98,10 +100,24 @@
         
     }else {
         devices = [json valueForKey:@"devices"];
-        [self.myTableView reloadData];
+        
+        if (updateDetailViewDevice) {
+            updateDetailViewDevice = NO;
+            self.detailView.device = [devices objectAtIndex:self.myTableView.indexPathForSelectedRow.row];
+        }else {
+            [self.myTableView reloadData];
+        }
+        
     }
     
     
 }
 
+#pragma mark - DeviceViewDetailViewController Delegate
+
+-(void)fetchAndUpdateDetailViewDevice {
+    
+    updateDetailViewDevice = YES;
+    [self getDeviceInfo];
+}
 @end

@@ -10,6 +10,11 @@
 #import "DeviceStateCell.h"
 #import "HAUSWebServiceClient.h"
 
+@protocol DeviceViewDetailViewControllerDelegate <NSObject>
+
+- (void) fetchAndUpdateDetailViewDevice;
+
+@end
 @interface DeviceViewDetailViewController : UITableViewController <HAUSWebServiceClientDelegate>
 {
     HAUSWebServiceClient *client;
@@ -18,5 +23,6 @@
 }
 
 @property (strong, nonatomic) NSDictionary *device;
+@property (strong, nonatomic) id <DeviceViewDetailViewControllerDelegate> masterDelegate;
 
 @end

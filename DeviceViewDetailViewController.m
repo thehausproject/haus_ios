@@ -16,13 +16,14 @@
 
 @implementation DeviceViewDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+#pragma mark - Detail Item
+
+-(void)setDevice:(NSDictionary *)device {
+    
+    if (_device != device) {
+        _device = device;
+        [self.tableView reloadData];
     }
-    return self;
 }
 
 - (void)viewDidLoad
@@ -96,7 +97,9 @@
         
     }else {
         
-        DLog(@"%@",json);
+        if (self.masterDelegate) {
+            [self.masterDelegate fetchAndUpdateDetailViewDevice];
+        }
     }
     
     
