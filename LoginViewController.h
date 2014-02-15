@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HAUSWebServiceClient.h"
+#import "DejalActivityView.h"
 
 @interface LoginViewController : UIViewController <HAUSWebServiceClientDelegate> {
     
     HAUSWebServiceClient *client;
-    NSMutableArray *hausWebServiceCallbacks;
-    
+    NSMutableDictionary *hausWebServiceCallbacks;
+//    DejalBezelActivityView *activityView;
 }
 
 @property (strong, nonatomic) IBOutlet UITextField *userNameText;

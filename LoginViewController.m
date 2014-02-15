@@ -41,11 +41,11 @@
 - (void) initWebServiceCallbacks {
     
     if (!hausWebServiceCallbacks) {
-        hausWebServiceCallbacks = [NSMutableArray new];
+        hausWebServiceCallbacks = [NSMutableDictionary new];
     }
-    
     //add the callback at its tag type
-    [hausWebServiceCallbacks insertObject:[CallbackHelperMethods makeInvocationWithSEL:@selector(signInResponse:) forSender:self] atIndex:SIGNIN_REQUEST];
+    [hausWebServiceCallbacks setObject:[CallbackHelperMethods makeInvocationWithSEL:@selector(signInResponse:) forSender:self] forKey:[[NSNumber numberWithInt:SIGNIN_REQUEST] stringValue]];
+    [hausWebServiceCallbacks setObject:[CallbackHelperMethods makeInvocationWithSEL:@selector(signUpResponse:) forSender:self] forKey:[[NSNumber numberWithInt:SIGNUP_REQUEST] stringValue]];
     
 }
 - (BOOL)usernameReturn:(UITextField *)textField
@@ -62,8 +62,12 @@
     return YES;
 }
 
+- (void) showActivityView {
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@""];
+}
 - (IBAction)hitLogin:(id)sender {
     
+    [self showActivityView];
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithCapacity:0];
     [parameters setObject:self.userNameText.text forKey:@"username"];
@@ -77,6 +81,8 @@
 
 
 - (IBAction)hitSignUp:(id)sender {
+    
+    [self showActivityView];
     
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     [parameters setObject:self.signUp_userName.text forKey:@"username"];
@@ -94,9 +100,17 @@
 #define JSON_ARG_INDEX 2
 - (void) hausWebServiceResponseForRequest:(kHAUSWebServiceRequestType)requestType withJSON:(NSDictionary *)json {
     
-    NSInvocation *invocation = [hausWebServiceCallbacks objectAtIndex:requestType];
-    [invocation setArgument:&(json) atIndex:JSON_ARG_INDEX];
-    [invocation invoke];
+    [DejalBezelActivityView removeView];
+    
+    NSInvocation *invocation = [hausWebServiceCallbacks valueForKey:[[NSNumber numberWithInt:requestType] stringValue]];
+    if(invocation) {
+        [invocation setArgument:&(json) atIndex:JSON_ARG_INDEX];
+        [invocation invoke];
+    }else {
+        DLog(@"Unimplemented response callback for Request type: %i",requestType);
+        DLog(@"With json: %@", json);   
+    }
+    
     
 }
 
@@ -114,5 +128,14 @@
     }
 }
 
+- (void) signUpResponse:(NSDictionary *)json {
+    
+    if ([json valueForKey:@"auth_key"]) {
+        
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [appDelegate.hausUserData setAuthKey:[json valueForKey:@"auth_key"]];
+    }
+    DLog(@"%@", json);
+}
 
 @end

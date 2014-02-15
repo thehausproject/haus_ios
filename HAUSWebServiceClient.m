@@ -82,79 +82,22 @@
     return request;
 }
 
-- (void) sendRequest:(NSMutableURLRequest *)request {
+- (void) sendRequest:(NSMutableURLRequest *)request withTag:(kHAUSWebServiceRequestType)requestType {
     
     // Create url connection and fire request
     HAUSNSURLConnection *conn = [[HAUSNSURLConnection alloc] initWithRequest:request delegate:self];
-    [conn setTag:SIGNIN_REQUEST];
+    [conn setTag:requestType];
     [conn start];
 }
 #pragma mark - HAUS Web Service Calls
 
 -(void)signInWithParameters:(NSDictionary *)parameters {
     
-    
-    /*
-     NSString *_userName = self.userNameText.text;
-     NSString *_password = self.passwordText.text;
-     
-     NSString *post = @"username=";
-     post = [post stringByAppendingString:_userName];
-     post = [post stringByAppendingString:@"&password="];
-     post = [post stringByAppendingString:_password];
-     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-     
-     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-     
-     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-     [request setURL:[NSURL URLWithString:@""]];
-     [request setHTTPMethod:@"POST"];
-     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-     [request setHTTPBody:postData];
-     
-     NSURLConnection *conn = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-     
-     [conn start];
-     
-     NSError *error = [[NSError alloc] init];
-     NSHTTPURLResponse *response = nil;
-     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-     
-     //
-     if (response.statusCode == 200) {
-     [self.welcomeMessage setText:@"Hello World"];
-     //segue to next screen
-     @try {
-     [self performSegueWithIdentifier:@"showSecurity" sender:self];
-     }
-     @catch (NSException *exception) {
-     NSLog(@"%@", exception);
-     }
-     @finally {
-     NSLog(@"finally");
-     }
-     
-     } else
-     {
-     
-     NSString *errorLogin = [NSString stringWithFormat:@"Username %@ not valid.",_userName];
-     UIAlertView *message2 = [[UIAlertView alloc] initWithTitle:@"Login Error"
-     message:errorLogin
-     delegate:self
-     cancelButtonTitle:@"ok"
-     otherButtonTitles:nil];
-     [message2 show];
-     
-     }
-     */
-    //make the query string
-    
     NSString *urlString = @"http://www.dylanboltz.com/haus/login.php";
     NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
     [request setURL:[NSURL URLWithString:urlString]];
     
-    [self sendRequest:request];
+    [self sendRequest:request withTag:SIGNIN_REQUEST];
 
 }
 
@@ -164,6 +107,6 @@
     NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
     [request setURL:[NSURL URLWithString:urlString]];
     
-    [self sendRequest:request];
+    [self sendRequest:request withTag:SIGNUP_REQUEST];
 }
 @end

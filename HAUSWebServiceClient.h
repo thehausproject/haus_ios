@@ -11,6 +11,7 @@
 
 typedef enum {
     SIGNIN_REQUEST,
+    SIGNUP_REQUEST,
 } kHAUSWebServiceRequestType;
 
 @protocol HAUSWebServiceClientDelegate <NSObject>

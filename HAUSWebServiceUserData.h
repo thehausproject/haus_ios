@@ -11,5 +11,6 @@
 @interface HAUSWebServiceUserData : NSObject
 
 @property (strong, nonatomic) NSString *userToken;
+@property (strong, nonatomic) NSString *authKey;
 
 @end
