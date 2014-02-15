@@ -23,6 +23,7 @@
     if (_device != device) {
         _device = device;
         [self.tableView reloadData];
+        [self checkStateForUnlocked];
     }
 }
 
@@ -44,6 +45,25 @@
     }
 }
 
+#pragma mark - SDS Specific Stuff
+
+- (void) checkStateForUnlocked {
+    //after 5 seconds relock the state
+    //its actually relocked immediately, but the arduino has a 5 second delay
+    // we will mock that here
+    if ([[self.device objectForKey:@"state"] isEqualToString:@"UNLOCKED"]) {
+        [self performSelector:@selector(relockDevice) withObject:nil afterDelay:5];
+    }
+}
+
+- (void) relockDevice {
+    
+    NSMutableDictionary *editDevice = [NSMutableDictionary dictionaryWithDictionary:self.device];
+    [editDevice setValue:@"LOCKED" forKey:@"state"];
+    self.device = editDevice;
+    [self.tableView reloadData];
+    
+}
 #pragma mark - Web Service Helpers
 
 - (void) showActivityView {
