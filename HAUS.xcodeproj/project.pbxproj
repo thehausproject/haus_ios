@@ -15,6 +15,9 @@
 		46BF3F9B18AFEFF1000466F5 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F9A18AFEFF1000466F5 /* DeviceViewController.m */; };
 		46BF3F9F18AFF097000466F5 /* AddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F9E18AFF097000466F5 /* AddDeviceViewController.m */; };
 		46BF3FA418AFF1FF000466F5 /* AddDeviceInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FA318AFF1FF000466F5 /* AddDeviceInputCell.m */; };
+		46BF3FA718B02155000466F5 /* DeviceViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FA618B02155000466F5 /* DeviceViewDetailViewController.m */; };
+		46BF3FAB18B022B8000466F5 /* DeviceStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FAA18B022B8000466F5 /* DeviceStateCell.m */; };
+		46BF3FAD18B02553000466F5 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BF3FAC18B02553000466F5 /* locked.png */; };
 		6540DD4F18A82F81006B9F91 /* FrontActi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4A18A82F81006B9F91 /* FrontActi.jpg */; };
 		6540DD5018A82F81006B9F91 /* greenStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4B18A82F81006B9F91 /* greenStatus.png */; };
 		6540DD5118A82F81006B9F91 /* securityCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4C18A82F81006B9F91 /* securityCamera.png */; };
@@ -66,6 +69,11 @@
 		46BF3F9E18AFF097000466F5 /* AddDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceViewController.m; sourceTree = "<group>"; };
 		46BF3FA218AFF1FF000466F5 /* AddDeviceInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeviceInputCell.h; sourceTree = "<group>"; };
 		46BF3FA318AFF1FF000466F5 /* AddDeviceInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceInputCell.m; sourceTree = "<group>"; };
+		46BF3FA518B02155000466F5 /* DeviceViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewDetailViewController.h; sourceTree = "<group>"; };
+		46BF3FA618B02155000466F5 /* DeviceViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewDetailViewController.m; sourceTree = "<group>"; };
+		46BF3FA918B022B8000466F5 /* DeviceStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceStateCell.h; sourceTree = "<group>"; };
+		46BF3FAA18B022B8000466F5 /* DeviceStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceStateCell.m; sourceTree = "<group>"; };
+		46BF3FAC18B02553000466F5 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
 		6540DD4A18A82F81006B9F91 /* FrontActi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = FrontActi.jpg; path = assets/FrontActi.jpg; sourceTree = "<group>"; };
 		6540DD4B18A82F81006B9F91 /* greenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenStatus.png; path = assets/greenStatus.png; sourceTree = "<group>"; };
 		6540DD4C18A82F81006B9F91 /* securityCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = securityCamera.png; path = assets/securityCamera.png; sourceTree = "<group>"; };
@@ -198,6 +206,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		46BF3FA818B0229B000466F5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				46BF3FA918B022B8000466F5 /* DeviceStateCell.h */,
+				46BF3FAA18B022B8000466F5 /* DeviceStateCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		46D6504218AEB73000E01E86 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,9 +237,12 @@
 		46D6504418AEB75200E01E86 /* Devices */ = {
 			isa = PBXGroup;
 			children = (
+				46BF3FA818B0229B000466F5 /* Cells */,
 				46BF3F9C18AFF080000466F5 /* Add Device */,
 				46BF3F9918AFEFF1000466F5 /* DeviceViewController.h */,
 				46BF3F9A18AFEFF1000466F5 /* DeviceViewController.m */,
+				46BF3FA518B02155000466F5 /* DeviceViewDetailViewController.h */,
+				46BF3FA618B02155000466F5 /* DeviceViewDetailViewController.m */,
 			);
 			name = Devices;
 			sourceTree = "<group>";
@@ -248,6 +268,7 @@
 				6540DD4C18A82F81006B9F91 /* securityCamera.png */,
 				6540DD4D18A82F81006B9F91 /* thermo.png */,
 				6540DD4E18A82F81006B9F91 /* unlock.png */,
+				46BF3FAC18B02553000466F5 /* locked.png */,
 				65F81AAE184BDEEE002E09DA /* deviceDetailView.h */,
 				65F81AAF184BDEEE002E09DA /* deviceDetailView.m */,
 				654EE983180CB30900C2452E /* MainStoryboard.storyboard */,
@@ -399,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6540DD5218A82F81006B9F91 /* thermo.png in Resources */,
+				46BF3FAD18B02553000466F5 /* locked.png in Resources */,
 				654EE984180CB30900C2452E /* MainStoryboard.storyboard in Resources */,
 				6540DD5318A82F81006B9F91 /* unlock.png in Resources */,
 				654EE95F180CB2E500C2452E /* InfoPlist.strings in Resources */,
@@ -426,6 +448,7 @@
 			files = (
 				65F81AB0184BDEEE002E09DA /* deviceDetailView.m in Sources */,
 				654EE965180CB2E500C2452E /* AppDelegate.m in Sources */,
+				46BF3FA718B02155000466F5 /* DeviceViewDetailViewController.m in Sources */,
 				46BF3F8B18AFD29F000466F5 /* HAUSWebServiceUserData.m in Sources */,
 				654EE961180CB2E500C2452E /* main.m in Sources */,
 				46BF3F9B18AFEFF1000466F5 /* DeviceViewController.m in Sources */,
@@ -436,6 +459,7 @@
 				46BF3F8818AFC4E7000466F5 /* HAUSNSURLConnection.m in Sources */,
 				46BF3F8318AFC412000466F5 /* HAUSWebServiceClient.m in Sources */,
 				6540DD5918AC804A006B9F91 /* LoginViewController.m in Sources */,
+				46BF3FAB18B022B8000466F5 /* DeviceStateCell.m in Sources */,
 				46BF3F9818AFDEEB000466F5 /* DejalActivityView.m in Sources */,
 				46BF3F9F18AFF097000466F5 /* AddDeviceViewController.m in Sources */,
 			);

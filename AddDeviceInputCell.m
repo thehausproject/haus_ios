@@ -12,7 +12,9 @@
 
 #pragma mark - Text Field Delegate Methods
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    
+    if (self.cellDelegate) {
+        [self.cellDelegate cellInputText:self.inputText.text forRow:self.tag];
+    }
 }
 
 @end

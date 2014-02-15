@@ -8,6 +8,8 @@
 
 #import "AddDeviceViewController.h"
 #import "AddDeviceInputCell.h"
+#import "AppDelegate.h"
+#import "DejalActivityView.h"
 
 @interface AddDeviceViewController ()
 
@@ -30,6 +32,11 @@
 	// Do any additional setup after loading the view.
     
     [self initCellInfo];
+    
+    if (!client) {
+        client = [HAUSWebServiceClient new];
+        client.delegate = self;
+    }
 }
 
 - (void) initCellInfo {
@@ -43,6 +50,9 @@
     [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Nickname", @"title", @"nickname", @"parameter", @"", @"value", nil]];
 }
 
+- (void) showActivityView {
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@""];
+}
 
 #pragma mark - Table View Methods
 
@@ -71,6 +81,8 @@
 }
 - (IBAction)claimDevice:(id)sender {
     
+    [self.view endEditing:YES];
+    
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     
     for (int index = 0; index < NUMBER_OF_ROWS; index++) {
@@ -78,7 +90,33 @@
         
         [parameters setObject:[cellData objectForKey:@"value"] forKey:[cellData objectForKey:@"parameter"]];
     }
+    //set user token
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
     
-    DLog(@"Printing parameters: %@", parameters);
+    DLog(@"%@",parameters);
+    [self showActivityView];
+    [client claimDeviceWithParameters:parameters];
+}
+
+#pragma mark - Haus Web Service Delegate Methods
+
+-(void)hausWebServiceResponseForRequest:(kHAUSWebServiceRequestType)requestType withJSON:(NSDictionary *)json {
+    
+    [DejalBezelActivityView removeView];
+    
+    NSString *title = @"";
+    NSString *message = @"";
+    
+    if ([json valueForKey:@"error"]) {
+        title = @"Error";
+        message = [json valueForKey:@"error"];
+        
+    }else {
+        title = @"Success";
+        message = @"You have claimed this device";
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil ];
+    [alert show];
 }
 @end

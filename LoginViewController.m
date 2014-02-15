@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "CallbackHelperMethods.h"
+#import "DejalActivityView.h"
 
 @interface LoginViewController ()
 

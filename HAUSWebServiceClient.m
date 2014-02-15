@@ -56,7 +56,7 @@
 
 #pragma mark - Helper Functions
 
-- (NSData *) getHTTPBodyForParameter:(NSDictionary *)parameters {
+- (NSString *) getParametersAsQueryString:(NSDictionary *)parameters {
     
     NSMutableString *bodyString = [NSMutableString new];
     for (NSString *key in [parameters allKeys]) {
@@ -64,8 +64,13 @@
         [bodyString appendString:[NSString stringWithFormat:@"%@=%@&",key, [parameters valueForKey:key]]];
     }
     //remove last &
-    NSString *encodedBody = [bodyString substringToIndex:bodyString.length-1];
+   return [bodyString substringToIndex:bodyString.length-1];
+}
+
+- (NSData *) getHTTPBodyForParameter:(NSDictionary *)parameters {
     
+    
+    NSString *encodedBody = [self getParametersAsQueryString:parameters];
     return [encodedBody dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 }
 
@@ -108,5 +113,36 @@
     [request setURL:[NSURL URLWithString:urlString]];
     
     [self sendRequest:request withTag:SIGNUP_REQUEST];
+}
+
+- (void) claimDeviceWithParameters:(NSDictionary *)parameters {
+    
+    NSString *urlString = @"http://www.dylanboltz.com/haus/claimdevice.php";
+    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
+    [request setURL:[NSURL URLWithString:urlString]];
+    
+    [self sendRequest:request withTag:CLAIM_DEVICE];
+    
+}
+
+-(void)getDeviceInfoWithParameters:(NSDictionary *)parameters {
+    
+    NSString *urlString = @"http://www.dylanboltz.com/haus/getdeviceinfo.php";
+    
+    NSString *queryString = [NSString stringWithFormat:@"%@?%@",urlString,[self getParametersAsQueryString:parameters]];
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    [request setURL:[NSURL URLWithString:queryString]];
+    [request setHTTPMethod:@"GET"];
+    
+    [self sendRequest:request withTag:GET_DEVICE_INFO];
+}
+
+- (void)postDeviceStateWithParameters:(NSDictionary *)parameters {
+    
+    NSString *urlString = @"http://www.dylanboltz.com/haus/postdevicestate.php";
+    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
+    [request setURL:[NSURL URLWithString:urlString]];
+    
+    [self sendRequest:request withTag:POST_DEVICE_STATE];
 }
 @end

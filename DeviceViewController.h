@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HAUSWebServiceClient.h"
 
-@interface DeviceViewController : UIViewController
+@interface DeviceViewController : UIViewController <HAUSWebServiceClientDelegate, UITableViewDataSource, UITableViewDelegate> {
+    HAUSWebServiceClient *client;
+    NSMutableArray *devices;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 

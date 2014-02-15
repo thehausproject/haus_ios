@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "HAUSWebServiceClient.h"
-#import "DejalActivityView.h"
 
 @interface LoginViewController : UIViewController <HAUSWebServiceClientDelegate> {
     
