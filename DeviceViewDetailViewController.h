@@ -23,7 +23,10 @@
 
     //cell layout
     int sections;
+    NSMutableArray *rowsInSection;
     NSMutableArray *cellObjects;
+    
+    UIAlertView *expiredAlertView;
 }
 
 @property (strong, nonatomic) NSDictionary *device;

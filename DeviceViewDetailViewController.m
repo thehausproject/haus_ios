@@ -46,11 +46,19 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (expiredAlertView) {
+        [expiredAlertView show];
+    }
+}
 #pragma mark - Cell Setup
 - (void) configureCells {
     cellObjects = nil;
     cellObjects = [NSMutableArray new];
     
+    rowsInSection = [NSMutableArray new];
     sections = 0;
     
     if ([[self.device objectForKey:@"permission"] isEqualToString:@"A"] || [[self.device objectForKey:@"permission"] isEqualToString:@"W"]) {
@@ -62,16 +70,29 @@
         
         sections++;
         [cellObjects addObject:cell];
+        [rowsInSection addObject:[NSNumber numberWithInt:1]];
+        
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Type" withDetailKey:@"type"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Status" withDetailKey:@"status"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Nickname" withDetailKey:@"nickname"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Permission" withDetailKey:@"permission"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Access Code" withDetailKey:@"access_code"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Owner" withDetailKey:@"owner"]];
+        
+        sections++;
+        [rowsInSection addObject:[NSNumber numberWithInt:6]];
+        
+    }else if ([[self.device objectForKey:@"permission"] isEqualToString:@"E"]) {
+        
+        sections++;
+        [rowsInSection addObject:[NSNumber numberWithInt:2]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Permission" withDetailKey:@"permission"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Owner" withDetailKey:@"owner"]];
+        
+        expiredAlertView = [[UIAlertView alloc] initWithTitle:@"Expired Permission" message:@"Contact the device owner, to update your permission" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     }
     
-    sections++;
     
-    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Type" withDetailKey:@"type"]];
-    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Status" withDetailKey:@"status"]];
-    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Nickname" withDetailKey:@"nickname"]];
-    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Permission" withDetailKey:@"permission"]];
-    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Access Code" withDetailKey:@"access_code"]];
-    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Owner" withDetailKey:@"owner"]];
     
     
 }
@@ -124,11 +145,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (section == 0) {
-        return 1;
-    }else {
-        return [cellObjects count]-1;
-    }
+    return [[rowsInSection objectAtIndex:section] integerValue];
     
 }
 
