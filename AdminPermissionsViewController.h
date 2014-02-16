@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "HAUSWebServiceClient.h"
+#import "AddPermissionViewController.h"
 
-@interface AdminPermissionsViewController : UITableViewController <HAUSWebServiceClientDelegate> {
+@interface AdminPermissionsViewController : UITableViewController <HAUSWebServiceClientDelegate, AddPermissionViewControllerDelegate> {
     HAUSWebServiceClient *client;
     NSArray *permissions;
     NSArray *rowKeys;

@@ -73,6 +73,7 @@
     if ([segue.identifier isEqualToString:@"addPermission"]) {
         AddPermissionViewController *vc = [segue destinationViewController];
         vc.deviceID = self.deviceID;
+        vc.delegate = self;
     }
 }
 #pragma mark - Table view data source
@@ -201,6 +202,9 @@
     }
 }
 
-- (IBAction)addNewPermission:(id)sender {
+#pragma mark - Add Device Permission Controller
+
+-(void)refreshPemissions {
+    [self getUserDeviceInfo];
 }
 @end

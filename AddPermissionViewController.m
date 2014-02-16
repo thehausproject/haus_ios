@@ -115,6 +115,7 @@
     [parameters setObject:self.deviceID forKey:@"device_id"];
     DLog(@"%@",parameters);
     [self showActivityView];
+    popOnSuccess = false;
     [client grantUserPermissionWithParameters:parameters];
     
 }
@@ -136,11 +137,21 @@
     }else {
         title = @"Success";
         message = @"Permission Granted";
-        [self.navigationController popViewControllerAnimated:YES];
+        popOnSuccess = true;
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil ];
+    alert.delegate = self;
     [alert show];
 }
 
+#pragma mark - Alert View Delegate
 
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (popOnSuccess) {
+        if (self.delegate) {
+            [self.delegate refreshPemissions];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 @end

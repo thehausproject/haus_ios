@@ -83,6 +83,8 @@
         destinationVC.deviceID = [self.device objectForKey:@"id"];
     }
 }
+
+#define CHECK_PERMISSION(p) [[self.device objectForKey:@"permission"] isEqualToString:p]
 #pragma mark - Cell Setup
 - (void) configureCells {
     cellObjects = nil;
@@ -91,7 +93,7 @@
     rowsInSection = [NSMutableArray new];
     sections = 0;
     
-    if ([[self.device objectForKey:@"permission"] isEqualToString:@"A"] || [[self.device objectForKey:@"permission"] isEqualToString:@"W"]) {
+    if (CHECK_PERMISSION(@"A") || CHECK_PERMISSION(@"W") || CHECK_PERMISSION(@"R")) {
         DeviceStateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"deviceStateCell"];
         
         NSString *deviceState = [self.device objectForKey:@"state"];
@@ -191,6 +193,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (!CHECK_PERMISSION(@"A") && !CHECK_PERMISSION(@"W")) {
+        return;
+    }
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([[cell class] isSubclassOfClass:[DeviceStateCell class]]) {
         [self showActivityView];

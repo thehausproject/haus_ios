@@ -10,11 +10,18 @@
 #import "InputCell.h"
 #import "HAUSWebServiceClient.h"
 
-@interface AddPermissionViewController : UITableViewController <UITextFieldDelegate,InputCellDelegate,HAUSWebServiceClientDelegate> {
+@protocol AddPermissionViewControllerDelegate <NSObject>
+
+- (void) refreshPemissions;
+
+@end
+@interface AddPermissionViewController : UITableViewController <UITextFieldDelegate, InputCellDelegate, HAUSWebServiceClientDelegate, UIAlertViewDelegate> {
     NSMutableArray *cellInfo;
     HAUSWebServiceClient *client;
+    BOOL popOnSuccess;
 }
 
 - (IBAction)grantPermission:(id)sender;
 @property (strong, nonatomic) NSString *deviceID;
+@property (strong, nonatomic) id <AddPermissionViewControllerDelegate> delegate;
 @end
