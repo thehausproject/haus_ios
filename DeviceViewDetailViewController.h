@@ -20,6 +20,10 @@
     HAUSWebServiceClient *client;
     NSDictionary *deviceStateImages;
     NSDictionary *deviceStateOpposites;
+
+    //cell layout
+    int sections;
+    NSMutableArray *cellObjects;
 }
 
 @property (strong, nonatomic) NSDictionary *device;

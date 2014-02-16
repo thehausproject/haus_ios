@@ -22,6 +22,7 @@
     
     if (_device != device) {
         _device = device;
+        [self configureCells];
         [self.tableView reloadData];
         [self checkStateForUnlocked];
     }
@@ -43,6 +44,46 @@
         client = [HAUSWebServiceClient new];
         client.delegate = self;
     }
+}
+
+#pragma mark - Cell Setup
+- (void) configureCells {
+    cellObjects = nil;
+    cellObjects = [NSMutableArray new];
+    
+    sections = 0;
+    
+    if ([[self.device objectForKey:@"permission"] isEqualToString:@"A"] || [[self.device objectForKey:@"permission"] isEqualToString:@"W"]) {
+        DeviceStateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"deviceStateCell"];
+        
+        NSString *deviceState = [self.device objectForKey:@"state"];
+        cell.deviceState.text = deviceState;
+        cell.deviceStateImage.image = [UIImage imageNamed:[deviceStateImages objectForKey:deviceState]];
+        
+        sections++;
+        [cellObjects addObject:cell];
+    }
+    
+    sections++;
+    
+    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Type" withDetailKey:@"type"]];
+    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Status" withDetailKey:@"status"]];
+    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Nickname" withDetailKey:@"nickname"]];
+    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Permission" withDetailKey:@"permission"]];
+    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Access Code" withDetailKey:@"access_code"]];
+    [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Owner" withDetailKey:@"owner"]];
+    
+    
+}
+
+- (UITableViewCell *) dequeueReusableRightDetailCellWithText:(NSString *)text withDetailKey:(NSString *)detailKey {
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"displayInfo"];
+    cell.textLabel.text = text;
+    cell.detailTextLabel.text = [self.device valueForKey:detailKey];
+    
+    return cell;
+    
 }
 
 #pragma mark - SDS Specific Stuff
@@ -75,33 +116,45 @@
 }
 #pragma mark - Table View Delegate Methods
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"HEADER";
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return sections;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    
+    if (section == 0) {
+        return 1;
+    }else {
+        return [cellObjects count]-1;
+    }
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    DeviceStateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"deviceStateCell"];
+    int cellObjectIndex = indexPath.row + indexPath.section;
+    return [cellObjects objectAtIndex:cellObjectIndex];
     
-    NSString *deviceState = [self.device objectForKey:@"state"];
-    cell.deviceState.text = deviceState;
-    cell.deviceStateImage.image = [UIImage imageNamed:[deviceStateImages objectForKey:deviceState]];
-    
-    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self showActivityView];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([[cell class] isSubclassOfClass:[DeviceStateCell class]]) {
+        [self showActivityView];
+        
+        NSMutableDictionary *parameters = [NSMutableDictionary new];
+        //set user token
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
+        [parameters setObject:[self.device objectForKey:@"id"] forKey:@"device_id"];
+        [parameters setObject:[deviceStateOpposites objectForKey:[self.device objectForKey:@"state"]] forKey:@"state"];
+        
+        [client postDeviceStateWithParameters:parameters];
+    }
     
-    NSMutableDictionary *parameters = [NSMutableDictionary new];
-    //set user token
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
-    [parameters setObject:[self.device objectForKey:@"id"] forKey:@"device_id"];
-    [parameters setObject:[deviceStateOpposites objectForKey:[self.device objectForKey:@"state"]] forKey:@"state"];
-    
-    [client postDeviceStateWithParameters:parameters];
     
 }
 
