@@ -9,6 +9,7 @@
 #import "AdminPermissionsViewController.h"
 #import "DejalActivityView.h"
 #import "AppDelegate.h"
+#import "AddPermissionViewController.h"
 
 @interface AdminPermissionsViewController ()
 
@@ -65,6 +66,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Prepare For Segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"addPermission"]) {
+        AddPermissionViewController *vc = [segue destinationViewController];
+        vc.deviceID = self.deviceID;
+    }
+}
 #pragma mark - Table view data source
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -191,4 +201,6 @@
     }
 }
 
+- (IBAction)addNewPermission:(id)sender {
+}
 @end

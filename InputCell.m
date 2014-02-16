@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 HAUS. All rights reserved.
 //
 
-#import "AddDeviceInputCell.h"
+#import "InputCell.h"
 
-@implementation AddDeviceInputCell
+@implementation InputCell
 
 #pragma mark - Text Field Delegate Methods
 -(void)textFieldDidEndEditing:(UITextField *)textField {

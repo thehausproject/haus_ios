@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		461B320D18B1638700A7AF9B /* AddPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461B320C18B1638700A7AF9B /* AddPermissionViewController.m */; };
 		46BF3F8318AFC412000466F5 /* HAUSWebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8218AFC412000466F5 /* HAUSWebServiceClient.m */; };
 		46BF3F8818AFC4E7000466F5 /* HAUSNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8718AFC4E7000466F5 /* HAUSNSURLConnection.m */; };
 		46BF3F8B18AFD29F000466F5 /* HAUSWebServiceUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8A18AFD29F000466F5 /* HAUSWebServiceUserData.m */; };
@@ -14,7 +15,7 @@
 		46BF3F9818AFDEEB000466F5 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F9718AFDEEA000466F5 /* DejalActivityView.m */; };
 		46BF3F9B18AFEFF1000466F5 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F9A18AFEFF1000466F5 /* DeviceViewController.m */; };
 		46BF3F9F18AFF097000466F5 /* AddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F9E18AFF097000466F5 /* AddDeviceViewController.m */; };
-		46BF3FA418AFF1FF000466F5 /* AddDeviceInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FA318AFF1FF000466F5 /* AddDeviceInputCell.m */; };
+		46BF3FA418AFF1FF000466F5 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FA318AFF1FF000466F5 /* InputCell.m */; };
 		46BF3FA718B02155000466F5 /* DeviceViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FA618B02155000466F5 /* DeviceViewDetailViewController.m */; };
 		46BF3FAB18B022B8000466F5 /* DeviceStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FAA18B022B8000466F5 /* DeviceStateCell.m */; };
 		46BF3FAD18B02553000466F5 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BF3FAC18B02553000466F5 /* locked.png */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		461B320B18B1638700A7AF9B /* AddPermissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPermissionViewController.h; sourceTree = "<group>"; };
+		461B320C18B1638700A7AF9B /* AddPermissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPermissionViewController.m; sourceTree = "<group>"; };
 		46BF3F8118AFC412000466F5 /* HAUSWebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUSWebServiceClient.h; sourceTree = "<group>"; };
 		46BF3F8218AFC412000466F5 /* HAUSWebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUSWebServiceClient.m; sourceTree = "<group>"; };
 		46BF3F8618AFC4E7000466F5 /* HAUSNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUSNSURLConnection.h; sourceTree = "<group>"; };
@@ -65,8 +68,8 @@
 		46BF3F9A18AFEFF1000466F5 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
 		46BF3F9D18AFF097000466F5 /* AddDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeviceViewController.h; sourceTree = "<group>"; };
 		46BF3F9E18AFF097000466F5 /* AddDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceViewController.m; sourceTree = "<group>"; };
-		46BF3FA218AFF1FF000466F5 /* AddDeviceInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeviceInputCell.h; sourceTree = "<group>"; };
-		46BF3FA318AFF1FF000466F5 /* AddDeviceInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceInputCell.m; sourceTree = "<group>"; };
+		46BF3FA218AFF1FF000466F5 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
+		46BF3FA318AFF1FF000466F5 /* InputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCell.m; sourceTree = "<group>"; };
 		46BF3FA518B02155000466F5 /* DeviceViewDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewDetailViewController.h; sourceTree = "<group>"; };
 		46BF3FA618B02155000466F5 /* DeviceViewDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewDetailViewController.m; sourceTree = "<group>"; };
 		46BF3FA918B022B8000466F5 /* DeviceStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceStateCell.h; sourceTree = "<group>"; };
@@ -124,6 +127,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		461B320E18B1638E00A7AF9B /* Add Permission */ = {
+			isa = PBXGroup;
+			children = (
+				461B320B18B1638700A7AF9B /* AddPermissionViewController.h */,
+				461B320C18B1638700A7AF9B /* AddPermissionViewController.m */,
+			);
+			name = "Add Permission";
+			sourceTree = "<group>";
+		};
 		46BF3F8018AFC3FE000466F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,8 +206,8 @@
 		46BF3FA118AFF1CC000466F5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				46BF3FA218AFF1FF000466F5 /* AddDeviceInputCell.h */,
-				46BF3FA318AFF1FF000466F5 /* AddDeviceInputCell.m */,
+				46BF3FA218AFF1FF000466F5 /* InputCell.h */,
+				46BF3FA318AFF1FF000466F5 /* InputCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 		46BF3FB018B04A49000466F5 /* View Admin Permissions */ = {
 			isa = PBXGroup;
 			children = (
+				461B320E18B1638E00A7AF9B /* Add Permission */,
 				46BF3FB118B04A6E000466F5 /* AdminPermissionsViewController.h */,
 				46BF3FB218B04A6E000466F5 /* AdminPermissionsViewController.m */,
 			);
@@ -459,10 +472,11 @@
 				654EE961180CB2E500C2452E /* main.m in Sources */,
 				46BF3F9B18AFEFF1000466F5 /* DeviceViewController.m in Sources */,
 				46BF3F9118AFD737000466F5 /* CallbackHelperMethods.m in Sources */,
-				46BF3FA418AFF1FF000466F5 /* AddDeviceInputCell.m in Sources */,
+				46BF3FA418AFF1FF000466F5 /* InputCell.m in Sources */,
 				46BF3F8818AFC4E7000466F5 /* HAUSNSURLConnection.m in Sources */,
 				46BF3F8318AFC412000466F5 /* HAUSWebServiceClient.m in Sources */,
 				6540DD5918AC804A006B9F91 /* LoginViewController.m in Sources */,
+				461B320D18B1638700A7AF9B /* AddPermissionViewController.m in Sources */,
 				46BF3FAB18B022B8000466F5 /* DeviceStateCell.m in Sources */,
 				46BF3F9818AFDEEB000466F5 /* DejalActivityView.m in Sources */,
 				46BF3F9F18AFF097000466F5 /* AddDeviceViewController.m in Sources */,

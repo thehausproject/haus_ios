@@ -157,4 +157,14 @@
     
     [self sendRequest:request withTag:GET_DEVICE_USER_INFO];
 }
+
+- (void) grantUserPermissionWithParameters:(NSDictionary *)parameters {
+    
+    
+    NSString *urlString = @"http://www.dylanboltz.com/haus/grantuserpermission.php";
+    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
+    [request setURL:[NSURL URLWithString:urlString]];
+    
+    [self sendRequest:request withTag:GRANT_USER_PERMISSION];
+}
 @end

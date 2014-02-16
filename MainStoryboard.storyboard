@@ -107,7 +107,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="inputCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="inputCell" id="s2t-ym-DX2" customClass="AddDeviceInputCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="inputCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="inputCell" id="s2t-ym-DX2" customClass="InputCell">
                                         <rect key="frame" x="0.0" y="119" width="325" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="userID" tableViewCell="s2t-ym-DX2" id="6uA-v5-WRJ">
@@ -161,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="1559" y="494"/>
         </scene>
-        <!--Admin Permissions View Controller-->
+        <!--Admin Permissions View Controller - Permissions-->
         <scene sceneID="0jH-GF-9pD">
             <objects>
                 <tableViewController id="3NP-tN-1OT" customClass="AdminPermissionsViewController" sceneMemberID="viewController">
@@ -200,11 +200,73 @@
                             <outlet property="delegate" destination="3NP-tN-1OT" id="W6I-IA-Vgh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="afy-wa-mPB"/>
+                    <navigationItem key="navigationItem" title="Permissions" id="afy-wa-mPB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fzb-Qc-9cY">
+                            <connections>
+                                <segue destination="lKm-aC-Q3s" kind="push" identifier="addPermission" id="gNu-e3-h3i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOv-4c-h1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2646" y="720"/>
+        </scene>
+        <!--Add Permission View Controller-->
+        <scene sceneID="Yn3-IW-oRQ">
+            <objects>
+                <tableViewController id="lKm-aC-Q3s" customClass="AddPermissionViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KpG-ay-yvq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="inputCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="inputCell" id="lkK-rQ-6Of" customClass="InputCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="userID" tableViewCell="lkK-rQ-6Of" id="664-bz-xaP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8hZ-Dy-czy">
+                                            <rect key="frame" x="20" y="11" width="119" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odm-AN-0pE">
+                                            <rect key="frame" x="147" y="7" width="158" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="lkK-rQ-6Of" id="hlB-oQ-fD3"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellTitle" destination="8hZ-Dy-czy" id="SPf-od-r6K"/>
+                                    <outlet property="inputText" destination="odm-AN-0pE" id="YaN-3o-Un3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lKm-aC-Q3s" id="Mrf-J6-5kO"/>
+                            <outlet property="delegate" destination="lKm-aC-Q3s" id="C21-x8-xqt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bVT-ho-Ix9">
+                        <barButtonItem key="rightBarButtonItem" title="Grant Permission" style="done" id="XTC-2D-K90">
+                            <connections>
+                                <action selector="grantPermission:" destination="lKm-aC-Q3s" id="jZf-jY-rpO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ra-w8-rb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3212" y="600"/>
         </scene>
         <!--Login View Controller - HAUS-->
         <scene sceneID="L05-Z4-jUN">

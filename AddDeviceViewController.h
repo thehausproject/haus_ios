@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AddDeviceInputCell.h"
+#import "InputCell.h"
 #import "HAUSWebServiceClient.h"
 
-@interface AddDeviceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AddDeviceInputCellDelegate, HAUSWebServiceClientDelegate> {
+@interface AddDeviceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, InputCellDelegate, HAUSWebServiceClientDelegate> {
     
     NSMutableArray *cellInfo;
     HAUSWebServiceClient *client;

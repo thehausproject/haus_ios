@@ -1,25 +1,24 @@
 //
-//  AddDeviceViewController.m
+//  AddPermissionViewController.m
 //  HAUS
 //
-//  Created by Russell Stephens on 2/15/14.
+//  Created by Russell Stephens on 2/16/14.
 //  Copyright (c) 2014 HAUS. All rights reserved.
 //
 
-#import "AddDeviceViewController.h"
-#import "InputCell.h"
-#import "AppDelegate.h"
+#import "AddPermissionViewController.h"
 #import "DejalActivityView.h"
+#import "AppDelegate.h"
 
-@interface AddDeviceViewController ()
+@interface AddPermissionViewController ()
 
 @end
 
-@implementation AddDeviceViewController
+@implementation AddPermissionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
@@ -29,8 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self initCellInfo];
     
     if (!client) {
@@ -45,10 +48,26 @@
         cellInfo = [NSMutableArray arrayWithCapacity:0];
     }
     
-    ;
-    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Passcode", @"title", @"passcode", @"parameter", @"", @"value", nil]];
-    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Nickname", @"title", @"nickname", @"parameter", @"", @"value", nil]];
+    /*
+     username
+     device_id
+     permission_level
+     expiration_date
+     access_code
+     */
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Username",          @"title", @"username",          @"parameter", @"", @"value", nil]];
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Permission Level",  @"title", @"permission_level",  @"parameter", @"", @"value", nil]];
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Expiration Date",   @"title", @"expiration_date",   @"parameter", @"", @"value", nil]];
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Access Code",       @"title", @"access_code",       @"parameter", @"", @"value", nil]];
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 
 
 - (void) showActivityView {
     [DejalBezelActivityView activityViewForView:self.view withLabel:@""];
@@ -56,7 +75,7 @@
 
 #pragma mark - Table View Methods
 
-#define NUMBER_OF_ROWS 2
+#define NUMBER_OF_ROWS 4
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return NUMBER_OF_ROWS;
     
@@ -79,7 +98,7 @@
     [cellData setObject:text forKey:@"value"];
     
 }
-- (IBAction)claimDevice:(id)sender {
+- (IBAction)grantPermission:(id)sender {
     
     [self.view endEditing:YES];
     
@@ -93,11 +112,13 @@
     //set user token
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
-    
+    [parameters setObject:self.deviceID forKey:@"device_id"];
     DLog(@"%@",parameters);
     [self showActivityView];
-    [client claimDeviceWithParameters:parameters];
+    [client grantUserPermissionWithParameters:parameters];
+    
 }
+
 
 #pragma mark - Haus Web Service Delegate Methods
 
@@ -114,9 +135,12 @@
         
     }else {
         title = @"Success";
-        message = @"You have claimed this device";
+        message = @"Permission Granted";
+        [self.navigationController popViewControllerAnimated:YES];
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil ];
     [alert show];
 }
+
+
 @end

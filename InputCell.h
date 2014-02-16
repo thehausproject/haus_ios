@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol AddDeviceInputCellDelegate <NSObject>
+@protocol InputCellDelegate <NSObject>
 
 - (void) cellInputText:(NSString *)text forRow:(NSInteger)row;
 
 @end
-@interface AddDeviceInputCell : UITableViewCell <UITextFieldDelegate>
+@interface InputCell : UITableViewCell <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *cellTitle;
 @property (weak, nonatomic) IBOutlet UITextField *inputText;
 
-@property (weak, nonatomic) id <AddDeviceInputCellDelegate> cellDelegate;
+@property (weak, nonatomic) id <InputCellDelegate> cellDelegate;
 @end
