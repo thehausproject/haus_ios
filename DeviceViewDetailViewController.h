@@ -25,7 +25,7 @@
     int sections;
     NSMutableArray *rowsInSection;
     NSMutableArray *cellObjects;
-    
+    NSMutableArray *sectionHeaders;
     UIAlertView *expiredAlertView;
 }
 

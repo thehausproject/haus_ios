@@ -15,6 +15,7 @@ typedef enum {
     CLAIM_DEVICE,
     GET_DEVICE_INFO,
     POST_DEVICE_STATE,
+    GET_DEVICE_USER_INFO,
 } kHAUSWebServiceRequestType;
 
 @protocol HAUSWebServiceClientDelegate <NSObject>
@@ -36,4 +37,5 @@ typedef enum {
 - (void) claimDeviceWithParameters:(NSDictionary *)parameters;
 - (void) getDeviceInfoWithParameters:(NSDictionary *)parameters;
 - (void) postDeviceStateWithParameters:(NSDictionary *)parameters;
+- (void) getDeviceUserInfoWithParameters:(NSDictionary *)parameters;
 @end

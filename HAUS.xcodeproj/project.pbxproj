@@ -18,6 +18,7 @@
 		46BF3FA718B02155000466F5 /* DeviceViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FA618B02155000466F5 /* DeviceViewDetailViewController.m */; };
 		46BF3FAB18B022B8000466F5 /* DeviceStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FAA18B022B8000466F5 /* DeviceStateCell.m */; };
 		46BF3FAD18B02553000466F5 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BF3FAC18B02553000466F5 /* locked.png */; };
+		46BF3FB318B04A6E000466F5 /* AdminPermissionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3FB218B04A6E000466F5 /* AdminPermissionsViewController.m */; };
 		6540DD4F18A82F81006B9F91 /* FrontActi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4A18A82F81006B9F91 /* FrontActi.jpg */; };
 		6540DD5018A82F81006B9F91 /* greenStatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4B18A82F81006B9F91 /* greenStatus.png */; };
 		6540DD5118A82F81006B9F91 /* securityCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 6540DD4C18A82F81006B9F91 /* securityCamera.png */; };
@@ -71,6 +72,8 @@
 		46BF3FA918B022B8000466F5 /* DeviceStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceStateCell.h; sourceTree = "<group>"; };
 		46BF3FAA18B022B8000466F5 /* DeviceStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceStateCell.m; sourceTree = "<group>"; };
 		46BF3FAC18B02553000466F5 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
+		46BF3FB118B04A6E000466F5 /* AdminPermissionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminPermissionsViewController.h; sourceTree = "<group>"; };
+		46BF3FB218B04A6E000466F5 /* AdminPermissionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminPermissionsViewController.m; sourceTree = "<group>"; };
 		6540DD4A18A82F81006B9F91 /* FrontActi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = FrontActi.jpg; path = assets/FrontActi.jpg; sourceTree = "<group>"; };
 		6540DD4B18A82F81006B9F91 /* greenStatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenStatus.png; path = assets/greenStatus.png; sourceTree = "<group>"; };
 		6540DD4C18A82F81006B9F91 /* securityCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = securityCamera.png; path = assets/securityCamera.png; sourceTree = "<group>"; };
@@ -228,6 +231,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		46BF3FB018B04A49000466F5 /* View Admin Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				46BF3FB118B04A6E000466F5 /* AdminPermissionsViewController.h */,
+				46BF3FB218B04A6E000466F5 /* AdminPermissionsViewController.m */,
+			);
+			name = "View Admin Permissions";
+			sourceTree = "<group>";
+		};
 		46D6504218AEB73000E01E86 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +252,7 @@
 		46D6504418AEB75200E01E86 /* Devices */ = {
 			isa = PBXGroup;
 			children = (
+				46BF3FB018B04A49000466F5 /* View Admin Permissions */,
 				46BF3FA818B0229B000466F5 /* Cells */,
 				46BF3F9C18AFF080000466F5 /* Add Device */,
 				46BF3F9918AFEFF1000466F5 /* DeviceViewController.h */,
@@ -441,6 +454,7 @@
 			files = (
 				654EE965180CB2E500C2452E /* AppDelegate.m in Sources */,
 				46BF3FA718B02155000466F5 /* DeviceViewDetailViewController.m in Sources */,
+				46BF3FB318B04A6E000466F5 /* AdminPermissionsViewController.m in Sources */,
 				46BF3F8B18AFD29F000466F5 /* HAUSWebServiceUserData.m in Sources */,
 				654EE961180CB2E500C2452E /* main.m in Sources */,
 				46BF3F9B18AFEFF1000466F5 /* DeviceViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "DeviceViewDetailViewController.h"
 #import "DejalActivityView.h"
 #import "AppDelegate.h"
+#import "AdminPermissionsViewController.h"
 
 @interface DeviceViewDetailViewController ()
 
@@ -25,6 +26,7 @@
         [self configureCells];
         [self.tableView reloadData];
         [self checkStateForUnlocked];
+        [self adminSetup];
     }
 }
 
@@ -53,11 +55,39 @@
         [expiredAlertView show];
     }
 }
+
+#pragma mark - Admin Setup
+
+- (void) adminSetup {
+    
+    if ([[self.device objectForKey:@"permission"] isEqualToString:@"A"]) {
+        
+        UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit Permissions" style:UIBarButtonItemStyleBordered target:self action:@selector(showPermissions)];
+        self.navigationItem.rightBarButtonItem = rightBarButton;
+    }else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
+
+- (void) showPermissions {
+    
+    [self performSegueWithIdentifier:@"showPermissions" sender:self];
+}
+
+#pragma mark - Prepare for segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"showPermissions"]) {
+        AdminPermissionsViewController *destinationVC = (AdminPermissionsViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
+        destinationVC.deviceID = [self.device objectForKey:@"id"];
+    }
+}
 #pragma mark - Cell Setup
 - (void) configureCells {
     cellObjects = nil;
     cellObjects = [NSMutableArray new];
-    
+    sectionHeaders = [NSMutableArray new];
     rowsInSection = [NSMutableArray new];
     sections = 0;
     
@@ -67,6 +97,7 @@
         NSString *deviceState = [self.device objectForKey:@"state"];
         cell.deviceState.text = deviceState;
         cell.deviceStateImage.image = [UIImage imageNamed:[deviceStateImages objectForKey:deviceState]];
+        [sectionHeaders addObject:@"Actions"];
         
         sections++;
         [cellObjects addObject:cell];
@@ -80,11 +111,13 @@
         [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Owner" withDetailKey:@"owner"]];
         
         sections++;
+        [sectionHeaders addObject:@"Info"];
         [rowsInSection addObject:[NSNumber numberWithInt:6]];
         
     }else if ([[self.device objectForKey:@"permission"] isEqualToString:@"E"]) {
         
         sections++;
+        [sectionHeaders addObject:@"Expired"];
         [rowsInSection addObject:[NSNumber numberWithInt:2]];
         [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Permission" withDetailKey:@"permission"]];
         [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Owner" withDetailKey:@"owner"]];
@@ -138,7 +171,7 @@
 #pragma mark - Table View Delegate Methods
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"HEADER";
+    return [sectionHeaders objectAtIndex:section];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return sections;

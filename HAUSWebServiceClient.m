@@ -145,4 +145,16 @@
     
     [self sendRequest:request withTag:POST_DEVICE_STATE];
 }
+
+-(void)getDeviceUserInfoWithParameters:(NSDictionary *)parameters {
+    
+    NSString *urlString = @"http://www.dylanboltz.com/haus/getdeviceuserinfo.php";
+    
+    NSString *queryString = [NSString stringWithFormat:@"%@?%@",urlString,[self getParametersAsQueryString:parameters]];
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    [request setURL:[NSURL URLWithString:queryString]];
+    [request setHTTPMethod:@"GET"];
+    
+    [self sendRequest:request withTag:GET_DEVICE_USER_INFO];
+}
 @end
