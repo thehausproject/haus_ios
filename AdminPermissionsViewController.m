@@ -68,7 +68,7 @@
 #pragma mark - Table view data source
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Permission %i",section+1];
+    return [NSString stringWithFormat:@"Permission %li",section+1];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

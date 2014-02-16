@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HAUSWebServiceClient.h"
 
-@interface LoginViewController : UIViewController <HAUSWebServiceClientDelegate> {
+@interface LoginViewController : UIViewController <HAUSWebServiceClientDelegate, UITextFieldDelegate> {
     
     HAUSWebServiceClient *client;
     NSMutableDictionary *hausWebServiceCallbacks;

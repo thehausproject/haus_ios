@@ -184,7 +184,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    int cellObjectIndex = indexPath.row + indexPath.section;
+    long cellObjectIndex = indexPath.row + indexPath.section;
     return [cellObjects objectAtIndex:cellObjectIndex];
     
 }

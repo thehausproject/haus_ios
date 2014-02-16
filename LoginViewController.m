@@ -149,4 +149,18 @@
     
 }
 
+#define LOGIN_KEYBOARD 1
+#define SIGNUP_KEYBOARD 2
+#pragma mark - Text Field Delegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    if (textField.tag == LOGIN_KEYBOARD) {
+        [self hitLogin:self];
+    }else if (textField.tag == SIGNUP_KEYBOARD){
+        [self hitSignUp:self];
+    }
+    return YES;
+}
+
 @end

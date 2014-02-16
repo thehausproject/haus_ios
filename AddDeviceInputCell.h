@@ -10,7 +10,7 @@
 
 @protocol AddDeviceInputCellDelegate <NSObject>
 
-- (void) cellInputText:(NSString *)text forRow:(int)row;
+- (void) cellInputText:(NSString *)text forRow:(NSInteger)row;
 
 @end
 @interface AddDeviceInputCell : UITableViewCell <UITextFieldDelegate>

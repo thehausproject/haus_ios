@@ -73,7 +73,7 @@
 
 #pragma mark - Add Device Input Cell Delegate
 
--(void)cellInputText:(NSString *)text forRow:(int)row {
+-(void)cellInputText:(NSString *)text forRow:(NSInteger)row {
     
     NSMutableDictionary *cellData = (NSMutableDictionary *)[cellInfo objectAtIndex:row];
     [cellData setObject:text forKey:@"value"];
