@@ -10,10 +10,11 @@
 #import "InputCell.h"
 #import "HAUSWebServiceClient.h"
 
-@interface AddDeviceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, InputCellDelegate, HAUSWebServiceClientDelegate> {
+@interface AddDeviceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, InputCellDelegate, HAUSWebServiceClientDelegate, UIAlertViewDelegate> {
     
     NSMutableArray *cellInfo;
     HAUSWebServiceClient *client;
+    BOOL popOnSuccess;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;

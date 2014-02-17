@@ -216,6 +216,7 @@
 #pragma mark - Haus Web Service Delegate
 
 -(void)hausWebServiceResponseForRequest:(kHAUSWebServiceRequestType)requestType withJSON:(NSDictionary *)json {
+    DLog(@"%@",json);
     
     if ([json valueForKey:@"error"]) {
         [self hideActivityView];

@@ -96,6 +96,7 @@
     
     DLog(@"%@",parameters);
     [self showActivityView];
+    popOnSuccess = false;
     [client claimDeviceWithParameters:parameters];
 }
 
@@ -115,8 +116,18 @@
     }else {
         title = @"Success";
         message = @"You have claimed this device";
+        popOnSuccess = true;
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:Nil cancelButtonTitle:@"Ok" otherButtonTitles: nil ];
+    alert.delegate = self;
     [alert show];
+}
+
+#pragma mark - Alert View Delegate
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (popOnSuccess) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 @end

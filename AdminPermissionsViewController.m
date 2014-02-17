@@ -77,7 +77,8 @@
         vc.delegate = self;
     }else if ([segue.identifier isEqualToString:@"viewAccessPermissions"]) {
         AccessPermissionViewController *vc = [segue destinationViewController];
-        vc.permissionID = [[permissions objectAtIndex:[self.tableView.indexPathForSelectedRow row]] valueForKey:@"id"];
+        DLog(@"%@",[[permissions objectAtIndex:[self.tableView.indexPathForSelectedRow section]] valueForKey:@"id"]);
+        vc.permissionID = [[permissions objectAtIndex:[self.tableView.indexPathForSelectedRow section]] valueForKey:@"id"];
     }
 }
 #pragma mark - Table view data source

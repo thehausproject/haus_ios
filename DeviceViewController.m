@@ -103,6 +103,9 @@
     
     [self showActivityView];
     
+    devices = nil;
+    devices = [NSMutableArray new];
+    
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     //set user token
     [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
