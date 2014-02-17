@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		461B320D18B1638700A7AF9B /* AddPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461B320C18B1638700A7AF9B /* AddPermissionViewController.m */; };
+		461B321218B17E5E00A7AF9B /* AccessPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461B321118B17E5E00A7AF9B /* AccessPermissionViewController.m */; };
+		461B321618B18ABD00A7AF9B /* EditAccessPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461B321518B18ABD00A7AF9B /* EditAccessPermissionViewController.m */; };
 		46BF3F8318AFC412000466F5 /* HAUSWebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8218AFC412000466F5 /* HAUSWebServiceClient.m */; };
 		46BF3F8818AFC4E7000466F5 /* HAUSNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8718AFC4E7000466F5 /* HAUSNSURLConnection.m */; };
 		46BF3F8B18AFD29F000466F5 /* HAUSWebServiceUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BF3F8A18AFD29F000466F5 /* HAUSWebServiceUserData.m */; };
@@ -54,6 +56,10 @@
 /* Begin PBXFileReference section */
 		461B320B18B1638700A7AF9B /* AddPermissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPermissionViewController.h; sourceTree = "<group>"; };
 		461B320C18B1638700A7AF9B /* AddPermissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPermissionViewController.m; sourceTree = "<group>"; };
+		461B321018B17E5E00A7AF9B /* AccessPermissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessPermissionViewController.h; sourceTree = "<group>"; };
+		461B321118B17E5E00A7AF9B /* AccessPermissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessPermissionViewController.m; sourceTree = "<group>"; };
+		461B321418B18ABD00A7AF9B /* EditAccessPermissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAccessPermissionViewController.h; sourceTree = "<group>"; };
+		461B321518B18ABD00A7AF9B /* EditAccessPermissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAccessPermissionViewController.m; sourceTree = "<group>"; };
 		46BF3F8118AFC412000466F5 /* HAUSWebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUSWebServiceClient.h; sourceTree = "<group>"; };
 		46BF3F8218AFC412000466F5 /* HAUSWebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUSWebServiceClient.m; sourceTree = "<group>"; };
 		46BF3F8618AFC4E7000466F5 /* HAUSNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUSNSURLConnection.h; sourceTree = "<group>"; };
@@ -134,6 +140,25 @@
 				461B320C18B1638700A7AF9B /* AddPermissionViewController.m */,
 			);
 			name = "Add Permission";
+			sourceTree = "<group>";
+		};
+		461B320F18B17E2700A7AF9B /* View Access Permission */ = {
+			isa = PBXGroup;
+			children = (
+				461B321318B18A9000A7AF9B /* Edit Access Permission */,
+				461B321018B17E5E00A7AF9B /* AccessPermissionViewController.h */,
+				461B321118B17E5E00A7AF9B /* AccessPermissionViewController.m */,
+			);
+			name = "View Access Permission";
+			sourceTree = "<group>";
+		};
+		461B321318B18A9000A7AF9B /* Edit Access Permission */ = {
+			isa = PBXGroup;
+			children = (
+				461B321418B18ABD00A7AF9B /* EditAccessPermissionViewController.h */,
+				461B321518B18ABD00A7AF9B /* EditAccessPermissionViewController.m */,
+			);
+			name = "Edit Access Permission";
 			sourceTree = "<group>";
 		};
 		46BF3F8018AFC3FE000466F5 /* Model */ = {
@@ -246,6 +271,7 @@
 		46BF3FB018B04A49000466F5 /* View Admin Permissions */ = {
 			isa = PBXGroup;
 			children = (
+				461B320F18B17E2700A7AF9B /* View Access Permission */,
 				461B320E18B1638E00A7AF9B /* Add Permission */,
 				46BF3FB118B04A6E000466F5 /* AdminPermissionsViewController.h */,
 				46BF3FB218B04A6E000466F5 /* AdminPermissionsViewController.m */,
@@ -475,9 +501,11 @@
 				46BF3FA418AFF1FF000466F5 /* InputCell.m in Sources */,
 				46BF3F8818AFC4E7000466F5 /* HAUSNSURLConnection.m in Sources */,
 				46BF3F8318AFC412000466F5 /* HAUSWebServiceClient.m in Sources */,
+				461B321218B17E5E00A7AF9B /* AccessPermissionViewController.m in Sources */,
 				6540DD5918AC804A006B9F91 /* LoginViewController.m in Sources */,
 				461B320D18B1638700A7AF9B /* AddPermissionViewController.m in Sources */,
 				46BF3FAB18B022B8000466F5 /* DeviceStateCell.m in Sources */,
+				461B321618B18ABD00A7AF9B /* EditAccessPermissionViewController.m in Sources */,
 				46BF3F9818AFDEEB000466F5 /* DejalActivityView.m in Sources */,
 				46BF3F9F18AFF097000466F5 /* AddDeviceViewController.m in Sources */,
 			);

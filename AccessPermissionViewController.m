@@ -1,46 +1,36 @@
 //
-//  AdminPermissionsViewController.m
+//  AccessPermissionViewController.m
 //  HAUS
 //
-//  Created by Russell Stephens on 2/15/14.
+//  Created by Russell Stephens on 2/16/14.
 //  Copyright (c) 2014 HAUS. All rights reserved.
 //
 
-#import "AdminPermissionsViewController.h"
+#import "AccessPermissionViewController.h"
 #import "DejalActivityView.h"
 #import "AppDelegate.h"
-#import "AddPermissionViewController.h"
-#import "AccessPermissionViewController.h"
+#import "EditAccessPermissionViewController.h"
 
-@interface AdminPermissionsViewController ()
+@interface AccessPermissionViewController ()
 
 @end
 
-@implementation AdminPermissionsViewController
+@implementation AccessPermissionViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-#pragma mark - device id
--(void)setDeviceID:(NSString *)deviceID {
-    
-    if (_deviceID != deviceID) {
-        _deviceID = deviceID;
-        [self getUserDeviceInfo];
+#pragma mark - detail item
+-(void)setPermissionID:(NSString *)permissionID {
+    if (_permissionID != permissionID) {
+        
+        _permissionID = permissionID;
+        [self getAccessPermissions];
     }
 }
+
+#pragma mark - View Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismissView)];
-    self.navigationItem.leftBarButtonItem = leftButtonItem;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -51,65 +41,76 @@
         client = [HAUSWebServiceClient new];
         client.delegate = self;
     }
-    
-    if (!rowKeys) {
-        rowKeys = [NSArray arrayWithObjects:@"access_expiration_date", @"access_granted_by", @"date_authorized", @"permission", @"user", nil];
-    }
-    
+    [self initCellsWithJSON:nil];
 }
 
-- (void) dismissView {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-- (void)didReceiveMemoryWarning
+#pragma mark - Cell Setup
+- (void) initCellsWithJSON:(NSDictionary *)json
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+//    [cellObjects removeAllObjects];
+    
+//    if (!cellObjects) {
+    cellObjects = nil;
+    cellObjects = [NSMutableArray new];
+//    }
+    
+//    if (!rowsInSection) {
+    rowsInSection = nil;
+    rowsInSection = [NSMutableArray new];
+//    }
+    if (!json) {
+        sections = 0;
+        [rowsInSection addObject:[NSNumber numberWithInt:0]];
+        
+        return;
+    }
+    
+    //check first for full access
+    if ([json valueForKey:@"all_access"]) {
+        
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"detailCell"];
+        sections = 1;
+        [rowsInSection addObject:[NSNumber numberWithInt:1]];
+        
+        cell.textLabel.text = @"Access Level";
+        cell.detailTextLabel.text = @"All Access";
+        
+        [cellObjects addObject:cell];
+    }
+    
+   
 }
 
 #pragma mark - Prepare For Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"addPermission"]) {
-        AddPermissionViewController *vc = [segue destinationViewController];
-        vc.deviceID = self.deviceID;
-        vc.delegate = self;
-    }else if ([segue.identifier isEqualToString:@"viewAccessPermissions"]) {
-        AccessPermissionViewController *vc = [segue destinationViewController];
-        vc.permissionID = [[permissions objectAtIndex:[self.tableView.indexPathForSelectedRow row]] valueForKey:@"id"];
+    if ([segue.identifier isEqualToString:@"editAccessPermission"]) {
+        EditAccessPermissionViewController *vc = [segue destinationViewController];
+        vc.permissionID = self.permissionID;
     }
 }
 #pragma mark - Table view data source
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Permission %li",section+1];
-}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
-    return [permissions count];
+    return sections;
 }
 
-#define ROWS_PER_SECTION 5
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    return ROWS_PER_SECTION;
+    if ([rowsInSection count] < 1) {
+        return 0;
+    }
+    return [[rowsInSection objectAtIndex:section] integerValue];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"detailCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSString *rowKey = [rowKeys objectAtIndex:indexPath.row];
-    cell.textLabel.text = rowKey;
-    
-    NSString *value = ([[permissions objectAtIndex:indexPath.section] valueForKey:rowKey] == [NSNull null])? @"0000-00-00":[[permissions objectAtIndex:indexPath.section] valueForKey:rowKey];
-    cell.detailTextLabel.text = value;
-    
-    return cell;
+    return [cellObjects objectAtIndex:indexPath.row];
 }
 
 /*
@@ -163,7 +164,20 @@
 
  */
 
-#pragma mark - Haus Web Service Delegate Helpers
+
+#pragma mark - HAUS Web Service Helper
+- (void) getAccessPermissions {
+    
+    [self showActivityView];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary new];
+    [parameters setObject:self.permissionID forKey:@"permission_id"];
+    [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
+    
+    [client getDevicePermissionAccessInfoWithParameters:parameters];
+}
 
 - (void) showActivityView {
     [DejalBezelActivityView activityViewForView:self.view withLabel:@""];
@@ -173,23 +187,9 @@
     [DejalBezelActivityView removeView];
 }
 
-- (void) getUserDeviceInfo {
-    
-    [self showActivityView];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    NSMutableDictionary *parameters = [NSMutableDictionary new];
-    [parameters setObject:self.deviceID forKey:@"device_id"];
-    [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
-    
-    [client getDeviceUserInfoWithParameters:parameters];
-    
-    
-}
-#pragma mark - Haus Web Service Delegate Methods
-
+#pragma mark - HAUS Web Service Delegate
 -(void)hausWebServiceResponseForRequest:(kHAUSWebServiceRequestType)requestType withJSON:(NSDictionary *)json {
+    
     DLog(@"%@",json);
     [self hideActivityView];
     
@@ -200,15 +200,8 @@
         [alert show];
         
     }else {
-        
-        permissions = [json valueForKey:@"permissions"];
+        [self initCellsWithJSON:json];
         [self.tableView reloadData];
     }
-}
-
-#pragma mark - Add Device Permission Controller
-
--(void)refreshPemissions {
-    [self getUserDeviceInfo];
 }
 @end

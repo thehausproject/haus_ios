@@ -167,4 +167,35 @@
     
     [self sendRequest:request withTag:GRANT_USER_PERMISSION];
 }
+
+-(void)getDevicePermissionAccessInfoWithParameters:(NSDictionary *)parameters {
+    
+    NSString *urlString = @"http://www.dylanboltz.com/haus/getdevicepermissionaccessinfo.php";
+    
+    NSString *queryString = [NSString stringWithFormat:@"%@?%@",urlString,[self getParametersAsQueryString:parameters]];
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    [request setURL:[NSURL URLWithString:queryString]];
+    [request setHTTPMethod:@"GET"];
+    
+    [self sendRequest:request withTag:DEVICE_PERMISSION_ACCESS_INFO];
+}
+
+-(void)grantUserAccessTimeWithParameters:(NSDictionary *)parameters {
+    
+    NSString *urlString = @"http://www.dylanboltz.com/haus/grantuseraccesstime.php";
+    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
+    [request setURL:[NSURL URLWithString:urlString]];
+    
+    [self sendRequest:request withTag:GRANT_USER_PERMISSION];
+}
+
+-(void)editUserAccessTimeWithParameters:(NSDictionary *)parameters {
+    
+    NSString *urlString = @"http://www.dylanboltz.com/haus/edituseraccesstime.php";
+    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
+    [request setURL:[NSURL URLWithString:urlString]];
+    
+    [self sendRequest:request withTag:EDIT_USER_ACCESS_TIME];
+
+}
 @end
