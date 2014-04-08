@@ -85,6 +85,7 @@
 }
 
 #define CHECK_PERMISSION(p) [[self.device objectForKey:@"permission"] isEqualToString:p]
+#define CHECK_STATUS(p) [[self.device objectForKey:@"status"] isEqualToString:p]
 #pragma mark - Cell Setup
 - (void) configureCells {
     cellObjects = nil;
@@ -93,7 +94,19 @@
     rowsInSection = [NSMutableArray new];
     sections = 0;
     
-    if (CHECK_PERMISSION(@"A") || CHECK_PERMISSION(@"W") || CHECK_PERMISSION(@"R")) {
+    if (CHECK_STATUS(@"D")) {
+        
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Type" withDetailKey:@"type"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Status" withDetailKey:@"status"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Nickname" withDetailKey:@"nickname"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Permission" withDetailKey:@"permission"]];
+        [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Owner" withDetailKey:@"owner"]];
+        
+        sections++;
+        [sectionHeaders addObject:@"Info"];
+        [rowsInSection addObject:[NSNumber numberWithInt:5]];
+        
+    }else if (CHECK_PERMISSION(@"A") || CHECK_PERMISSION(@"W") || CHECK_PERMISSION(@"R")) {
         DeviceStateCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"deviceStateCell"];
         
         NSString *deviceState = [self.device objectForKey:@"state"];
@@ -148,7 +161,7 @@
     //after 5 seconds relock the state
     //its actually relocked immediately, but the arduino has a 5 second delay
     // we will mock that here
-    if ([[self.device objectForKey:@"state"] isEqualToString:@"UNLOCKED"]) {
+    if ([self.device objectForKey:@"state"] != (id)[NSNull null] && [[self.device objectForKey:@"state"] isEqualToString:@"UNLOCKED"]) {
         [self performSelector:@selector(relockDevice) withObject:nil afterDelay:5];
     }
 }
