@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "HAUSNSURLConnection.h"
 
+#define CREATE_URL_STRING(s) [NSString stringWithFormat:@"http://www.dylanboltz.com/haus/%@.php", s]
+
 typedef enum {
     SIGNIN_REQUEST,
     SIGNUP_REQUEST,
@@ -20,6 +22,8 @@ typedef enum {
     DEVICE_PERMISSION_ACCESS_INFO,
     GRANT_USER_ACCESS_TIME,
     EDIT_USER_ACCESS_TIME,
+    CREATE_VIDEO_DEVICE,
+    GET_VIDEO_DEVICE_INFO,
 } kHAUSWebServiceRequestType;
 
 @protocol HAUSWebServiceClientDelegate <NSObject>
@@ -34,16 +38,7 @@ typedef enum {
 
 @property (weak, nonatomic) id <HAUSWebServiceClientDelegate> delegate;
 
-#pragma mark - Define Calls below
+- (void) createPOSTRequestWithURL:(NSString*) urlString withParameters:(NSDictionary *)parameters withTag:(kHAUSWebServiceRequestType)requestType;
+- (void) createGETRequestWithURL:(NSString*) urlString withParameters:(NSDictionary *)parameters withTag:(kHAUSWebServiceRequestType)requestType;
 
-- (void) signInWithParameters:                              (NSDictionary *)parameters;
-- (void) signUpWithParameters:                              (NSDictionary *)parameters;
-- (void) claimDeviceWithParameters:                         (NSDictionary *)parameters;
-- (void) getDeviceInfoWithParameters:                       (NSDictionary *)parameters;
-- (void) postDeviceStateWithParameters:                     (NSDictionary *)parameters;
-- (void) getDeviceUserInfoWithParameters:                   (NSDictionary *)parameters;
-- (void) grantUserPermissionWithParameters:                 (NSDictionary *)parameters;
-- (void) getDevicePermissionAccessInfoWithParameters:       (NSDictionary *)parameters;
-- (void) grantUserAccessTimeWithParameters:                 (NSDictionary *)parameters;
-- (void) editUserAccessTimeWithParameters:                 (NSDictionary *)parameters;
 @end

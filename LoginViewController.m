@@ -74,7 +74,7 @@
     [parameters setObject:self.userNameText.text forKey:@"username"];
     [parameters setObject:self.passwordText.text forKey:@"password"];
     
-    [client signInWithParameters:parameters];
+    [client createPOSTRequestWithURL:CREATE_URL_STRING(@"login") withParameters:parameters withTag:SIGNIN_REQUEST];
     
     
     
@@ -90,8 +90,7 @@
     [parameters setObject:self.signUp_password.text forKey:@"password"];
     [parameters setObject:self.signUp_email.text forKey:@"email"];
     
-    //DLog(@"%@",parameters);
-    [client signUpWithParameters:parameters];
+    [client createPOSTRequestWithURL:CREATE_URL_STRING(@"createuser") withParameters:parameters withTag:SIGNUP_REQUEST];
     
 }
 

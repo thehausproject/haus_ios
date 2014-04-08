@@ -116,7 +116,8 @@
     DLog(@"%@",parameters);
     [self showActivityView];
     popOnSuccess = false;
-    [client grantUserPermissionWithParameters:parameters];
+    
+    [client createPOSTRequestWithURL:CREATE_URL_STRING(@"grantuserpermission") withParameters:parameters withTag:GRANT_USER_PERMISSION];
     
 }
 

@@ -207,7 +207,7 @@
         [parameters setObject:[self.device objectForKey:@"id"] forKey:@"device_id"];
         [parameters setObject:[deviceStateOpposites objectForKey:[self.device objectForKey:@"state"]] forKey:@"state"];
         
-        [client postDeviceStateWithParameters:parameters];
+        [client createPOSTRequestWithURL:CREATE_URL_STRING(@"postdevicestate") withParameters:parameters withTag:POST_DEVICE_STATE];
     }
     
     

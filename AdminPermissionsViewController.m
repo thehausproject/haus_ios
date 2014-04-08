@@ -184,7 +184,7 @@
     [parameters setObject:self.deviceID forKey:@"device_id"];
     [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
     
-    [client getDeviceUserInfoWithParameters:parameters];
+    [client createGETRequestWithURL:CREATE_URL_STRING(@"getdeviceuserinfo") withParameters:parameters withTag:GET_DEVICE_USER_INFO];
     
     
 }

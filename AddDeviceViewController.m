@@ -97,7 +97,8 @@
     DLog(@"%@",parameters);
     [self showActivityView];
     popOnSuccess = false;
-    [client claimDeviceWithParameters:parameters];
+    
+    [client createPOSTRequestWithURL:CREATE_URL_STRING(@"claimdevice") withParameters:parameters withTag:CLAIM_DEVICE];
 }
 
 #pragma mark - Haus Web Service Delegate Methods

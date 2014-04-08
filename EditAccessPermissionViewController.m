@@ -114,7 +114,7 @@
     DLog(@"%@",parameters);
     [self showActivityView];
     
-    [client grantUserAccessTimeWithParameters:parameters];
+    [client createPOSTRequestWithURL:CREATE_URL_STRING(@"grantuseraccesstime") withParameters:parameters withTag:GRANT_USER_ACCESS_TIME];
 }
 
 - (void) showActivityView {

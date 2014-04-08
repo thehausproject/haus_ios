@@ -176,7 +176,7 @@
     [parameters setObject:self.permissionID forKey:@"permission_id"];
     [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
     
-    [client getDevicePermissionAccessInfoWithParameters:parameters];
+    [client createGETRequestWithURL:CREATE_URL_STRING(@"getdevicepermissionaccessinfo") withParameters:parameters withTag:DEVICE_PERMISSION_ACCESS_INFO];
 }
 
 - (void) showActivityView {

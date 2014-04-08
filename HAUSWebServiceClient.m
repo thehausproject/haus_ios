@@ -94,108 +94,38 @@
     [conn setTag:requestType];
     [conn start];
 }
+
+- (void) createPOSTRequestWithURL:(NSString*) urlString withParameters:(NSDictionary *)parameters withTag:(kHAUSWebServiceRequestType)requestType {
+    
+    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
+    [request setURL:[NSURL URLWithString:urlString]];
+    
+    [self sendRequest:request withTag:requestType];
+}
+
+- (void) createGETRequestWithURL:(NSString*) urlString withParameters:(NSDictionary *)parameters withTag:(kHAUSWebServiceRequestType)requestType {
+    
+    NSString *queryString = [NSString stringWithFormat:@"%@?%@",urlString,[self getParametersAsQueryString:parameters]];
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    [request setURL:[NSURL URLWithString:queryString]];
+    [request setHTTPMethod:@"GET"];
+    
+    [self sendRequest:request withTag:requestType];
+}
 #pragma mark - HAUS Web Service Calls
-
--(void)signInWithParameters:(NSDictionary *)parameters {
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/login.php";
-    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
-    [request setURL:[NSURL URLWithString:urlString]];
-    
-    [self sendRequest:request withTag:SIGNIN_REQUEST];
-
-}
-
-- (void) signUpWithParameters:(NSDictionary *)parameters {
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/createuser.php";
-    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
-    [request setURL:[NSURL URLWithString:urlString]];
-    
-    [self sendRequest:request withTag:SIGNUP_REQUEST];
-}
-
-- (void) claimDeviceWithParameters:(NSDictionary *)parameters {
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/claimdevice.php";
-    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
-    [request setURL:[NSURL URLWithString:urlString]];
-    
-    [self sendRequest:request withTag:CLAIM_DEVICE];
-    
-}
-
--(void)getDeviceInfoWithParameters:(NSDictionary *)parameters {
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/getdeviceinfo.php";
-    
-    NSString *queryString = [NSString stringWithFormat:@"%@?%@",urlString,[self getParametersAsQueryString:parameters]];
-    NSMutableURLRequest *request = [NSMutableURLRequest new];
-    [request setURL:[NSURL URLWithString:queryString]];
-    [request setHTTPMethod:@"GET"];
-    
-    [self sendRequest:request withTag:GET_DEVICE_INFO];
-}
-
-- (void)postDeviceStateWithParameters:(NSDictionary *)parameters {
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/postdevicestate.php";
-    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
-    [request setURL:[NSURL URLWithString:urlString]];
-    
-    [self sendRequest:request withTag:POST_DEVICE_STATE];
-}
-
--(void)getDeviceUserInfoWithParameters:(NSDictionary *)parameters {
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/getdeviceuserinfo.php";
-    
-    NSString *queryString = [NSString stringWithFormat:@"%@?%@",urlString,[self getParametersAsQueryString:parameters]];
-    NSMutableURLRequest *request = [NSMutableURLRequest new];
-    [request setURL:[NSURL URLWithString:queryString]];
-    [request setHTTPMethod:@"GET"];
-    
-    [self sendRequest:request withTag:GET_DEVICE_USER_INFO];
-}
-
-- (void) grantUserPermissionWithParameters:(NSDictionary *)parameters {
-    
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/grantuserpermission.php";
-    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
-    [request setURL:[NSURL URLWithString:urlString]];
-    
-    [self sendRequest:request withTag:GRANT_USER_PERMISSION];
-}
-
--(void)getDevicePermissionAccessInfoWithParameters:(NSDictionary *)parameters {
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/getdevicepermissionaccessinfo.php";
-    
-    NSString *queryString = [NSString stringWithFormat:@"%@?%@",urlString,[self getParametersAsQueryString:parameters]];
-    NSMutableURLRequest *request = [NSMutableURLRequest new];
-    [request setURL:[NSURL URLWithString:queryString]];
-    [request setHTTPMethod:@"GET"];
-    
-    [self sendRequest:request withTag:DEVICE_PERMISSION_ACCESS_INFO];
-}
-
--(void)grantUserAccessTimeWithParameters:(NSDictionary *)parameters {
-    
-    NSString *urlString = @"http://www.dylanboltz.com/haus/grantuseraccesstime.php";
-    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
-    [request setURL:[NSURL URLWithString:urlString]];
-    
-    [self sendRequest:request withTag:GRANT_USER_PERMISSION];
-}
 
 -(void)editUserAccessTimeWithParameters:(NSDictionary *)parameters {
     
-    NSString *urlString = @"http://www.dylanboltz.com/haus/edituseraccesstime.php";
-    NSMutableURLRequest *request = [self getUrlRequestForHTTPMethod:@"POST" withParameters:parameters];
-    [request setURL:[NSURL URLWithString:urlString]];
-    
-    [self sendRequest:request withTag:EDIT_USER_ACCESS_TIME];
+    [self createPOSTRequestWithURL:CREATE_URL_STRING(@"edituseraccesstime") withParameters:parameters withTag:EDIT_USER_ACCESS_TIME];
+}
 
+-(void) createVideoDeviceWithParameters:(NSDictionary *)parameters {
+    
+    [self createPOSTRequestWithURL:CREATE_URL_STRING(@"createvideodevice") withParameters:parameters withTag:CREATE_VIDEO_DEVICE];
+}
+
+- (void) getVideoDeviceInfoWithParameters:(NSDictionary *)parameters {
+    
+    [self createGETRequestWithURL:CREATE_URL_STRING(@"getvideodeviceinfo") withParameters:parameters withTag:GET_VIDEO_DEVICE_INFO];
 }
 @end

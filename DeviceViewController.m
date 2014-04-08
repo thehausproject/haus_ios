@@ -110,7 +110,7 @@
     //set user token
     [parameters setObject:[appDelegate.hausUserData userToken] forKey:@"user_token"];
     
-    [client getDeviceInfoWithParameters:parameters];
+    [client createGETRequestWithURL:CREATE_URL_STRING(@"getdeviceinfo") withParameters:parameters withTag:GET_DEVICE_INFO];
 }
 #pragma mark - Haus Web Service Client Delegate
 - (void)hausWebServiceResponseForRequest:(kHAUSWebServiceRequestType)requestType withJSON:(NSDictionary *)json {
