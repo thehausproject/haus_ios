@@ -23,6 +23,7 @@
 - (void) fetchVideoDeviceInfo {
     
     self.webView.delegate = self;
+    self.webView.scalesPageToFit = YES;
     
     if (!client) {
         client = [HAUSWebServiceClient new];
