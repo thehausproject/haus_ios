@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oha-Sm-wbA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oha-Sm-wbA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -90,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="872" y="464"/>
         </scene>
-        <!--Add Device View Controller - Claim Device-->
+        <!--Add Device View Controller-->
         <scene sceneID="bM3-a0-OW2">
             <objects>
                 <viewController id="cPN-Zg-oaa" customClass="AddDeviceViewController" sceneMemberID="viewController">
@@ -146,7 +146,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Claim Device" id="YLG-Gf-XEc">
+                    <navigationItem key="navigationItem" id="YLG-Gf-XEc">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="gND-bF-oeJ">
+                            <rect key="frame" x="80" y="5" width="161" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Embedded"/>
+                                <segment title="Video"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedControlValueChanged:" destination="cPN-Zg-oaa" eventType="valueChanged" id="7D7-nN-DIc"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="Claim" id="HEB-TB-a3Z">
                             <connections>
                                 <action selector="claimDevice:" destination="cPN-Zg-oaa" id="Htv-zN-bxO"/>
@@ -606,6 +618,24 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="videoCell" rowHeight="243" id="sW0-8t-Zcz" customClass="VideoFeedTableViewCell">
+                                <rect key="frame" x="0.0" y="207" width="320" height="243"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sW0-8t-Zcz" id="LMb-ri-Qqo">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="242"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EBg-4m-sJs">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="242"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </webView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="webView" destination="EBg-4m-sJs" id="B1p-QD-Gr1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

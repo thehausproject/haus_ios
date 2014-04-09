@@ -119,13 +119,4 @@
     [self createPOSTRequestWithURL:CREATE_URL_STRING(@"edituseraccesstime") withParameters:parameters withTag:EDIT_USER_ACCESS_TIME];
 }
 
--(void) createVideoDeviceWithParameters:(NSDictionary *)parameters {
-    
-    [self createPOSTRequestWithURL:CREATE_URL_STRING(@"createvideodevice") withParameters:parameters withTag:CREATE_VIDEO_DEVICE];
-}
-
-- (void) getVideoDeviceInfoWithParameters:(NSDictionary *)parameters {
-    
-    [self createGETRequestWithURL:CREATE_URL_STRING(@"getvideodeviceinfo") withParameters:parameters withTag:GET_VIDEO_DEVICE_INFO];
-}
 @end

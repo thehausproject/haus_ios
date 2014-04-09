@@ -26,6 +26,7 @@
     NSMutableArray *rowsInSection;
     NSMutableArray *cellObjects;
     NSMutableArray *sectionHeaders;
+    NSMutableArray *cellIdentifiers;
     UIAlertView *expiredAlertView;
 }
 

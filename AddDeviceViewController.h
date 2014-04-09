@@ -15,10 +15,14 @@
     NSMutableArray *cellInfo;
     HAUSWebServiceClient *client;
     BOOL popOnSuccess;
+    
+    NSArray *segmentCallbackFunctions;
+    NSString *HAUSRESTEndpoint;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
 - (IBAction)claimDevice:(id)sender;
+- (IBAction)segmentedControlValueChanged:(id)sender;
 
 @end

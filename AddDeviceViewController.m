@@ -10,6 +10,7 @@
 #import "InputCell.h"
 #import "AppDelegate.h"
 #import "DejalActivityView.h"
+#import "CallbackHelperMethods.h"
 
 @interface AddDeviceViewController ()
 
@@ -31,24 +32,55 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self initCellInfo];
-    
     if (!client) {
         client = [HAUSWebServiceClient new];
         client.delegate = self;
     }
+    
+    segmentCallbackFunctions = @[[CallbackHelperMethods makeInvocationWithSEL:@selector(setUpForEmbeddedDevice) forSender:self],
+                                 [CallbackHelperMethods makeInvocationWithSEL:@selector(setUpForVideoDevice) forSender:self]];
+    
+    [[segmentCallbackFunctions objectAtIndex:0] invoke];
 }
 
-- (void) initCellInfo {
+#pragma mark - Segment Callback Functions
+
+- (void) setUpForEmbeddedDevice {
     
-    if (!cellInfo) {
-        cellInfo = [NSMutableArray arrayWithCapacity:0];
-    }
+    HAUSRESTEndpoint = @"claimdevice";
     
-    ;
+    cellInfo = [NSMutableArray arrayWithCapacity:0];
+    
     [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Passcode", @"title", @"passcode", @"parameter", @"", @"value", nil]];
     [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Nickname", @"title", @"nickname", @"parameter", @"", @"value", nil]];
+    
+    [self.myTableView reloadData];
 }
+
+- (void) setUpForVideoDevice {
+    
+    HAUSRESTEndpoint = @"createvideodevice";
+    
+    cellInfo = [NSMutableArray arrayWithCapacity:0];
+    
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Nickname", @"title", @"nickname", @"parameter", @"", @"value", nil]];
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"IP Address", @"title", @"ip_address", @"parameter", @"", @"value", nil]];
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Port", @"title", @"port", @"parameter", @"", @"value", nil]];
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"User Name", @"title", @"d_username", @"parameter", @"", @"value", nil]];
+    [cellInfo addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"Password", @"title", @"d_password", @"parameter", @"", @"value", nil]];
+    
+    [self.myTableView reloadData];
+    
+}
+
+#pragma mark - Segment Action
+
+- (IBAction)segmentedControlValueChanged:(id)sender {
+    
+    UISegmentedControl *segController = (UISegmentedControl*)sender;
+    [[segmentCallbackFunctions objectAtIndex:segController.selectedSegmentIndex] invoke];
+}
+#pragma mark -
 
 - (void) showActivityView {
     [DejalBezelActivityView activityViewForView:self.view withLabel:@""];
@@ -56,9 +88,8 @@
 
 #pragma mark - Table View Methods
 
-#define NUMBER_OF_ROWS 2
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return NUMBER_OF_ROWS;
+    return [cellInfo count];
     
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,7 +116,7 @@
     
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     
-    for (int index = 0; index < NUMBER_OF_ROWS; index++) {
+    for (int index = 0; index < [cellInfo count]; index++) {
         NSMutableDictionary *cellData = [cellInfo objectAtIndex:index];
         
         [parameters setObject:[cellData objectForKey:@"value"] forKey:[cellData objectForKey:@"parameter"]];
@@ -98,7 +129,8 @@
     [self showActivityView];
     popOnSuccess = false;
     
-    [client createPOSTRequestWithURL:CREATE_URL_STRING(@"claimdevice") withParameters:parameters withTag:CLAIM_DEVICE];
+    DLog(@"%@",CREATE_URL_STRING(HAUSRESTEndpoint));
+    [client createPOSTRequestWithURL:CREATE_URL_STRING(HAUSRESTEndpoint) withParameters:parameters withTag:CLAIM_DEVICE];
 }
 
 #pragma mark - Haus Web Service Delegate Methods

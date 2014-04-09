@@ -10,6 +10,7 @@
 #import "DejalActivityView.h"
 #import "AppDelegate.h"
 #import "AdminPermissionsViewController.h"
+#import "VideoFeedTableViewCell.h"
 
 @interface DeviceViewDetailViewController ()
 
@@ -86,14 +87,26 @@
 
 #define CHECK_PERMISSION(p) [[self.device objectForKey:@"permission"] isEqualToString:p]
 #define CHECK_STATUS(p) [[self.device objectForKey:@"status"] isEqualToString:p]
+#define CHECK_TYPE(p) [[self.device objectForKey:@"type"] isEqualToString:p]
 #pragma mark - Cell Setup
 - (void) configureCells {
     cellObjects = nil;
     cellObjects = [NSMutableArray new];
     sectionHeaders = [NSMutableArray new];
     rowsInSection = [NSMutableArray new];
+    cellIdentifiers = [NSMutableArray new];
     sections = 0;
     
+    if (CHECK_TYPE(@"V")) {
+        VideoFeedTableViewCell *videoCell = [self.tableView dequeueReusableCellWithIdentifier:@"videoCell"];
+        [cellObjects addObject:videoCell];
+        videoCell.deviceID = [self.device objectForKey:@"id"];
+        
+        [cellIdentifiers addObject:@"videoCell"];
+        sections++;
+        [sectionHeaders addObject:@"Video Feed"];
+        [rowsInSection addObject:[NSNumber numberWithInt:1]];
+    }
     if (CHECK_STATUS(@"D")) {
         
         [cellObjects addObject:[self dequeueReusableRightDetailCellWithText:@"Type" withDetailKey:@"type"]];
@@ -150,6 +163,7 @@
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"displayInfo"];
     cell.textLabel.text = text;
     cell.detailTextLabel.text = [self.device valueForKey:detailKey];
+    [cellIdentifiers addObject:@"displayInfo"];
     
     return cell;
     
@@ -224,6 +238,18 @@
     }
     
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Pulls the height from storyboard, so you only have to manage it there
+    NSNumber *height;
+    if (!height) {
+        long cellObjectIndex = indexPath.row + indexPath.section;
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[cellIdentifiers objectAtIndex:cellObjectIndex] ];
+        height = @(cell.bounds.size.height);
+    }
+    return [height floatValue];
 }
 
 #pragma mark - Haus Web Service Delegate
